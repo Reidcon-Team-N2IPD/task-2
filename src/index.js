@@ -1,6 +1,7 @@
 import "windi.css";
 import { routes } from "./router/routes";
 import { Header } from "./components/layout/header/header";
+import { AuthStateProxy } from "./store/auth";
 
 class App {
   constructor(routes) {
@@ -34,7 +35,7 @@ class App {
   }
 }
 
-export const app = new App(routes);
+const app = new App(routes);
 app.render();
 
 window.addEventListener("hashchange", (e) => {
@@ -43,6 +44,8 @@ window.addEventListener("hashchange", (e) => {
   const view = routes.find((route) => {
     return route.path == hash;
   });
+
+  AuthStateProxy.isLoggedIn = true;
 
   app.render(view.name);
 });

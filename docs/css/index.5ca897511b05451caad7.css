@@ -1,7 +1,5 @@
 /* windicss layer base */
-*,
-::before,
-::after {
+*, ::before, ::after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border-width: 0;
@@ -9,7 +7,7 @@
   border-color: #e5e7eb;
 }
 * {
-  --tw-ring-inset: var(--tw-empty, /*!*/ /*!*/);
+  --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
   --tw-ring-offset-width: 0px;
   --tw-ring-offset-color: #fff;
   --tw-ring-color: rgba(59, 130, 246, 0.5);
@@ -32,8 +30,7 @@
   border-style: none;
   padding: 0;
 }
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
   height: auto;
 }
 ::-webkit-search-decoration {
@@ -43,7 +40,7 @@
   -webkit-appearance: button;
   font: inherit;
 }
-[type="search"] {
+[type='search'] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
@@ -62,18 +59,15 @@ body {
 }
 html {
   -webkit-text-size-adjust: 100%;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
   line-height: 1.5;
+}
+h1, p {
+  margin: 0;
 }
 h1 {
   font-size: inherit;
   font-weight: inherit;
-}
-p,
-h1 {
-  margin: 0;
 }
 sup {
   font-size: 75%;
@@ -143,13 +137,17 @@ ul {
   flex: 1 1 0%;
 }
 .h-16 {
-  height: 5rem;
+  height: 4rem;
+}
+.h-\[calc\(100vh-5rem\)\] {
+  height: calc(100vh - 5rem);
 }
 .h-\[calc\(100\%\)\] {
   height: calc(100%);
 }
-.h-\[calc\(100vh-5rem\)\] {
-  height: calc(100vh - 5rem);
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 .text-xl {
   font-size: 1.25rem;
@@ -158,10 +156,6 @@ ul {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
-}
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 .ml-5 {
   margin-left: 1.25rem;
@@ -172,13 +166,13 @@ ul {
 .pr-5 {
   padding-right: 1.25rem;
 }
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
 .text-dark-600 {
   --tw-text-opacity: 1;
   color: rgba(28, 28, 30, var(--tw-text-opacity));
+}
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
 .w-\[calc\(100\%\)\] {
   width: calc(100%);
@@ -208,4 +202,8 @@ ul {
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgba(24, 24, 24, var(--tw-text-opacity));
+}
+.active:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
 }

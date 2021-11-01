@@ -1,4 +1,4 @@
-import { NavigationnavigationLink } from "./components/navigation-link";
+import { NavigationLink } from "./components/navigation-link";
 
 export class Header {
   constructor(routes) {
@@ -9,7 +9,7 @@ export class Header {
       <ul class="flex flex-row h-16">
        ${routes
          .map((r) => {
-           return new NavigationnavigationLink(r).el;
+           return new NavigationLink(r).el;
          })
          .join("")}        
       </ul>
