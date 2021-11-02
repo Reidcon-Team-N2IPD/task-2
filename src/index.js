@@ -1,6 +1,7 @@
 import "windi.css";
 import { router } from "./router/router";
 import { Header } from "./components/layout/header/header";
+import { AuthState } from "./store/auth";
 
 class App {
   constructor() {
@@ -27,8 +28,27 @@ class App {
 
 export const app = new App();
 const path = window.location.pathname;
-const route = router.routes.find((route) => route.path === path);
-app.render(route);
+let route;
+
+const isLoggedIn = localStorage.getItem("isLoggedIn");
+if (isLoggedIn === null) {
+  localStorage.setItem("isLoggedIn", false);
+
+  router.currentPath = "/auth";
+} else {
+  if (isLoggedIn === "true") {
+    AuthState.isLoggedIn = true;
+    if (path !== "/auth") {
+      router.currentPath = path;
+    } else {
+      router.currentPath = "/";
+    }
+  } else if (isLoggedIn == "false") {
+    router.currentPath = "/auth";
+  }
+}
+
+// app.render(route);
 
 window.addEventListener("popstate", (e) => {
   router.currentPath = e.target.location.pathname;

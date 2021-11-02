@@ -7,8 +7,11 @@ export const AuthState = new Proxy(
   {
     set: (obj, prop, val) => {
       if (val === true) {
+        localStorage.setItem("isLoggedIn", true);
         router.currentPath = "/";
-        alert("Successfully authenticated!");
+      } else if (val === false) {
+        localStorage.setItem("isLoggedIn", false);
+        router.currentPath = "/auth";
       }
       obj[prop] = val;
       return true;
