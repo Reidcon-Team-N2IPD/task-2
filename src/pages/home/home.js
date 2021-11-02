@@ -2,7 +2,7 @@ export class HomePage {
   constructor() {
     this.element = document.createElement("main");
     this.element.className =
-      "flex flex-row justify-center items-center h-[calc(100vh-5rem)]";
+      "flex flex-row justify-center items-center min-h-[calc(100vh-4rem)] mt-16";
     this.element.insertAdjacentElement(
       "afterbegin",
       (function () {

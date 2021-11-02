@@ -1,15 +1,17 @@
-export const AuthState = {
-  isLoggedIn: false,
-};
+import { router } from "../router/router";
 
-export const AuthStateProxy = new Proxy(AuthState, {
-  set: (obj, prop, val) => {
-    if (val === true) {
-      console.log("Logged in");
+export const AuthState = new Proxy(
+  {
+    isLoggedIn: false,
+  },
+  {
+    set: (obj, prop, val) => {
+      if (val === true) {
+        router.currentPath = "/";
+        alert("Successfully authenticated!");
+      }
       obj[prop] = val;
       return true;
-    }
-    obj[prop] = val;
-    return true;
-  },
-});
+    },
+  }
+);

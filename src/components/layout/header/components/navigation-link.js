@@ -13,7 +13,6 @@ export class NavigationLink {
     link.textContent = route.name;
     this.el.appendChild(link);
     link.addEventListener("click", () => {
-      history.pushState(null, null, path);
       router.currentPath = path;
     });
     return this.el;

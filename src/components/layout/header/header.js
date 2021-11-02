@@ -4,7 +4,7 @@ export class Header {
   constructor(routes) {
     this.el = document.createElement("header");
     this.el.className =
-      "flex flex-col md:flex-row justify-between items-center h-16 bg-dark-800";
+      "flex flex-col md:flex-row justify-between items-center h-16 bg-dark-800 fixed top-0 left-0 w-[100vw]";
     const p = document.createElement("p");
     p.className = "text-3xl text-white ml-5";
     p.innerHTML = "N<sup>2</sup>IPD";

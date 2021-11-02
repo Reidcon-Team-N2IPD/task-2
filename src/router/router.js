@@ -1,10 +1,6 @@
 import { routes } from "./routes";
 import { app } from "../index";
-
-// const router = {
-//   routes: routes,
-//   currentPath: "/",
-// };
+import { AuthState } from "../store/auth";
 
 export const router = new Proxy(
   {
@@ -14,7 +10,12 @@ export const router = new Proxy(
   {
     set: (obj, prop, val) => {
       if (prop === "currentPath") {
-        app.render(obj.routes.find((r) => r.path === val));
+        if (!(val == "/auth" && AuthState.isLoggedIn)) {
+          history.pushState(null, null, val);
+          app.render(obj.routes.find((r) => r.path === val));
+          obj[prop] = val;
+          return true;
+        }
       }
       obj[prop] = val;
       return true;
