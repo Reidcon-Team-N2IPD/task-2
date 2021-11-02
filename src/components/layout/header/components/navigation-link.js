@@ -1,5 +1,5 @@
 import "./navigation-link.css";
-import { routerProxy } from "../../../../router/router";
+import { router } from "../../../../router/router";
 
 export class NavigationLink {
   constructor(route) {
@@ -14,7 +14,7 @@ export class NavigationLink {
     this.el.appendChild(link);
     link.addEventListener("click", () => {
       history.pushState(null, null, path);
-      routerProxy.currentPath = path;
+      router.currentPath = path;
     });
     return this.el;
   }

@@ -1,10 +1,10 @@
 import "windi.css";
-import { routerProxy } from "./router/router";
+import { router } from "./router/router";
 import { Header } from "./components/layout/header/header";
 
 class App {
   constructor() {
-    this.routes = routerProxy.routes;
+    this.routes = router.routes;
     this.el = document.querySelector("body");
     this.el.appendChild(new Header(this.routes));
   }
@@ -27,9 +27,9 @@ class App {
 
 export const app = new App();
 const path = window.location.pathname;
-const route = routerProxy.routes.find((route) => route.path === path);
+const route = router.routes.find((route) => route.path === path);
 app.render(route);
 
 window.addEventListener("popstate", (e) => {
-  routerProxy.currentPath = e.target.location.pathname;
+  router.currentPath = e.target.location.pathname;
 });
