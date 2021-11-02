@@ -15,6 +15,7 @@ module.exports = {
   },
   devServer: {
     static: "./dev",
+    historyApiFallback: true,
   },
   optimization: {
     splitChunks: {
