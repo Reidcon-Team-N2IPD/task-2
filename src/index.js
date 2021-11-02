@@ -2,6 +2,7 @@ import "windi.css";
 import { routes } from "./router/routes";
 import { Header } from "./components/layout/header/header";
 import { AuthStateProxy } from "./store/auth";
+import { getProfileByUsername } from "./services/api";
 
 class App {
   constructor(routes) {
@@ -20,10 +21,8 @@ class App {
     const view = this.routes.find((route) => {
       return route.name == page;
     });
-    this.el.firstElementChild.insertAdjacentHTML(
-      "afterend",
-      new view.func().element
-    );
+    // this.el.firstElementChild.insertAdjacentHTML("afterend", new view.func());
+    this.el.appendChild(new view.func());
 
     document.querySelectorAll(".nav-list--link").forEach((nav_link) => {
       if (nav_link.hash === window.location.hash) {
@@ -38,7 +37,7 @@ class App {
 const app = new App(routes);
 app.render();
 
-window.addEventListener("hashchange", (e) => {
+window.addEventListener("hashchange", async (e) => {
   const hash = window.location.hash.replace("#", "");
 
   const view = routes.find((route) => {

@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.prod.js",
     "dev": "webpack serve --config webpack.config.dev.js --open",
+    "deploy": "yarn build && firebase deploy",
     "serve": "serve -s docs"
   },
   "devDependencies": {
