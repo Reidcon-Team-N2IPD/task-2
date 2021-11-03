@@ -1,4 +1,5 @@
 import { createProfile } from "../../../services/api";
+import { BaseLoader } from "../../../components/base/base-loader/base-loader.js/base-loader";
 
 export class Signup {
   constructor() {
@@ -59,6 +60,7 @@ export class Signup {
         return signup_btn;
       })()
     );
+    this.element.appendChild(new BaseLoader());
 
     return this.element;
   }

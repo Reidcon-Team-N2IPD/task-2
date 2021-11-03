@@ -28,7 +28,6 @@ class App {
 
 export const app = new App();
 const path = window.location.pathname;
-let route;
 
 const isLoggedIn = localStorage.getItem("isLoggedIn");
 if (isLoggedIn === null) {
@@ -47,8 +46,6 @@ if (isLoggedIn === null) {
     router.currentPath = "/auth";
   }
 }
-
-// app.render(route);
 
 window.addEventListener("popstate", (e) => {
   router.currentPath = e.target.location.pathname;
