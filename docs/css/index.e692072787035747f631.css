@@ -123,6 +123,9 @@ sup {
 .border {
   border-width: 1px;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
 .flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -209,6 +212,10 @@ sup {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
 .mt-4 {
   margin-top: 1rem;
 }
@@ -285,6 +292,14 @@ sup {
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }
+.text-blue-800 {
+  --tw-text-opacity: 1;
+  color: rgba(30, 64, 175, var(--tw-text-opacity));
+}
+.hover\:underline:hover {
+  -webkit-text-decoration-line: underline;
+  text-decoration-line: underline;
+}
 .content-type {
   content: "type";
 }
@@ -358,6 +373,51 @@ sup {
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
+  }
+}
+.hiddenFromView {
+  display: none;
+}
+.visibleFromView {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  justify-content: space-evenly;
+  min-height: calc(100vh - 200px);
+  visibility: visible;
+  width: calc(50vw);
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 150ms;
+  -o-transition-duration: 150ms;
+  transition-duration: 150ms;
+  animation: slideInAndShow 0.5s linear;
+}
+@keyframes slideInAndShow {
+  0% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 .active {
