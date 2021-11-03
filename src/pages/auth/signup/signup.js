@@ -1,10 +1,8 @@
 import { createProfile } from "../../../services/api";
-
 export class Signup {
   constructor() {
     this.element = document.createElement("form");
-    this.element.className =
-      "flex flex-col justify-evenly items-center min-h-[calc(100vh-200px)] w-[calc(50vw)]";
+    this.element.className = "signup-form hiddenFromView";
     this.element.innerHTML = String.raw`
       <input type="email" id="signup-email"   required   autocomplete="false"  name="signup-email" class="mt-4 w-[100%] h-15 border-dark-100 p-3 text-xl border rounded-full" placeholder="Email">
       <input type="password" id="signup-password"  required   autocomplete="false"  name="signup-password" class="mt-4 w-[100%] h-15 border-dark-100 p-3 text-xl border rounded-full" placeholder="Password">
@@ -18,7 +16,7 @@ export class Signup {
       "afterbegin",
       (function () {
         const h1 = document.createElement("h1");
-        h1.className = "text-5xl text-dark-600 mt-16";
+        h1.className = "text-5xl text-dark-600 mt-4";
         h1.textContent = "Create Profile";
         return h1;
       })()
@@ -26,12 +24,30 @@ export class Signup {
     this.element.addEventListener("submit", this.handleSubmit);
     this.element.appendChild(
       (function () {
-        const signup_btn = document.createElement("button");
-        signup_btn.className =
+        const signupBtn = document.createElement("button");
+        signupBtn.className =
           "text-2xl text-white bg-dark-800 my-8 py-4 px-20 rounded-full shadow-sm shadow-dark-500 hover:(transform bg-dark-600 shadow-2xl shadow-dark-800 -translate-y-2) active:(transform bg-dark-100 shadow-2xl shadow-dark-800 -translate-y-1) transition-all";
-        signup_btn.textContent = "Signup";
-        signup_btn.type = "submit";
-        return signup_btn;
+        signupBtn.textContent = "Signup";
+        signupBtn.type = "submit";
+        return signupBtn;
+      })()
+    );
+    this.element.appendChild(
+      (function () {
+        const linkToLogin = document.createElement("a");
+        linkToLogin.className =
+          "text-xl text-blue-800 my-4 cursor-pointer  transition-all  hover:(underline)";
+        linkToLogin.textContent = "Already signed up? Log in here =>";
+        linkToLogin.addEventListener("click", (e) => {
+          e.preventDefault();
+          const signupForm = document.querySelector(".signup-form");
+          const loginForm = document.querySelector(".login-form");
+          signupForm.classList.remove("visibleFromView");
+          signupForm.classList.add("hiddenFromView");
+          loginForm.classList.remove("hiddenFromView");
+          loginForm.classList.add("visibleFromView");
+        });
+        return linkToLogin;
       })()
     );
 

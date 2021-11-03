@@ -1,8 +1,10 @@
+import { AuthState } from "../../store/auth";
+
 export class HomePage {
   constructor() {
     this.element = document.createElement("main");
     this.element.className =
-      "flex flex-row justify-center items-center min-h-[calc(100vh-4rem)] mt-16";
+      "flex flex-col justify-center items-center min-h-[calc(100vh-4rem)] mt-16";
     this.element.insertAdjacentElement(
       "afterbegin",
       (function () {
@@ -10,6 +12,41 @@ export class HomePage {
         h1.className = "text-5xl text-dark-600";
         h1.textContent = "Home Page";
         return h1;
+      })()
+    );
+
+    this.element.appendChild(
+      (function () {
+        const logoutBtn = document.createElement("button");
+        logoutBtn.className = `text-2xl 
+                               text-white
+                               bg-dark-800
+                               my-8
+                               py-4
+                               px-20
+                               rounded-full
+                               shadow-sm
+                               shadow-dark-500
+                               hover:(
+                                 transform
+                                 bg-dark-600
+                                 shadow-2xl
+                                 shadow-dark-800
+                                 -translate-y-2
+                               )
+                               active:(
+                                 transform
+                                 bg-dark-100
+                                 shadow-2xl
+                                 shadow-dark-800
+                                 -translate-y-1
+                               )
+                               transition-all`;
+        logoutBtn.textContent = "Logout";
+        logoutBtn.addEventListener("click", () => {
+          AuthState.isLoggedIn = false;
+        });
+        return logoutBtn;
       })()
     );
 
