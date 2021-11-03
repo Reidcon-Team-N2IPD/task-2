@@ -11,7 +11,9 @@ export class Header {
     const ul = document.createElement("ul");
     ul.className = "flex flex-row h-16";
     routes.forEach((route) => {
-      ul.appendChild(new NavigationLink(route));
+      if (route.path !== "/auth") {
+        ul.appendChild(new NavigationLink(route));
+      }
     });
     this.el.appendChild(p);
     this.el.appendChild(ul);

@@ -2,27 +2,31 @@ import "windi.css";
 import { router } from "./router/router";
 import { Header } from "./components/layout/header/header";
 import { AuthState } from "./store/auth";
+import { MainLayout } from "./layouts/MainLayout";
+import { AuthLayout } from "./layouts/AuthLayout";
 
 class App {
   constructor() {
     this.routes = router.routes;
     this.el = document.querySelector("body");
-    this.el.appendChild(new Header(this.routes));
   }
 
   render(page) {
-    if (this.el.firstElementChild.nextElementSibling) {
-      this.el.removeChild(this.el.firstElementChild.nextElementSibling);
+    if (this.el.firstElementChild) {
+      this.el.removeChild(this.el.firstElementChild);
     }
-    this.el.appendChild(new page.func());
-
-    document.querySelectorAll(".nav-list--link").forEach((nav_link) => {
-      if (nav_link.textContent === page.name) {
-        nav_link.classList.add("active");
-      } else {
-        nav_link.classList.remove("active");
-      }
-    });
+    if (page.path !== "/auth") {
+      this.el.appendChild(new MainLayout(page.func, this.routes));
+      document.querySelectorAll(".nav-list--link").forEach((nav_link) => {
+        if (nav_link.textContent === page.name) {
+          nav_link.classList.add("active");
+        } else {
+          nav_link.classList.remove("active");
+        }
+      });
+    } else {
+      this.el.appendChild(new AuthLayout(page.func));
+    }
   }
 }
 

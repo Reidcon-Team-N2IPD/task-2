@@ -23,32 +23,7 @@ export class Signup {
         return h1;
       })()
     );
-    this.element.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const email = document.querySelector("#signup-email");
-      const password = document.querySelector("#signup-password");
-      const username = document.querySelector("#signup-username");
-      const fullname = document.querySelector("#signup-fullname");
-      const address = document.querySelector("#signup-address");
-      const birthday = document.querySelector("#signup-birthday");
-
-      console.log(
-        email.value,
-        password.value,
-        username.value,
-        fullname.value,
-        address.value,
-        birthday.value
-      );
-      await createProfile({
-        email: email.value,
-        password: password.value,
-        username: username.value,
-        fullname: fullname.value,
-        address: address.value,
-        birthday: birthday.value,
-      });
-    });
+    this.element.addEventListener("submit", this.handleSubmit);
     this.element.appendChild(
       (function () {
         const signup_btn = document.createElement("button");
@@ -61,5 +36,24 @@ export class Signup {
     );
 
     return this.element;
+  }
+
+  async handleSubmit(e) {
+    e.preventDefault();
+    const email = document.querySelector("#signup-email");
+    const password = document.querySelector("#signup-password");
+    const username = document.querySelector("#signup-username");
+    const fullname = document.querySelector("#signup-fullname");
+    const address = document.querySelector("#signup-address");
+    const birthday = document.querySelector("#signup-birthday");
+
+    await createProfile({
+      email: email.value,
+      password: password.value,
+      username: username.value,
+      fullname: fullname.value,
+      address: address.value,
+      birthday: birthday.value,
+    });
   }
 }
