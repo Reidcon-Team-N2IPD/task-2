@@ -109,13 +109,13 @@ sup {
   --tw-bg-opacity: 1;
   background-color: rgba(60, 60, 60, var(--tw-bg-opacity));
 }
-.hover\:bg-dark-50:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgba(74, 74, 74, var(--tw-bg-opacity));
-}
 .bg-dark-600 {
   --tw-bg-opacity: 1;
   background-color: rgba(28, 28, 30, var(--tw-bg-opacity));
+}
+.hover\:bg-dark-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgba(74, 74, 74, var(--tw-bg-opacity));
 }
 .border-dark-100 {
   --tw-border-opacity: 1;

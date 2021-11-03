@@ -1,10 +1,10 @@
 import { AuthState } from "../../store/auth";
+import "./Home.css";
 
 export class HomePage {
   constructor() {
     this.element = document.createElement("main");
-    this.element.className =
-      "flex flex-col justify-center items-center min-h-[calc(100vh-4rem)] mt-16";
+    this.element.className = "home-page";
     this.element.insertAdjacentElement(
       "afterbegin",
       (function () {
