@@ -2,33 +2,33 @@
   "use strict";
   var e,
     t = {
-      203: (e, t, r) => {
-        r.d(t, { l: () => u });
-        const a = new Proxy(
+      203: (e, t, n) => {
+        n.d(t, { l: () => h });
+        const r = new Proxy(
           { isLoggedIn: !1 },
           {
-            set: (e, t, r) => (
-              (e[t] = r),
-              !0 === r
+            set: (e, t, n) => (
+              (e[t] = n),
+              !0 === n
                 ? (localStorage.setItem("isLoggedIn", !0),
-                  (n.currentPath = "/"))
-                : !1 === r &&
+                  (i.currentPath = "/"))
+                : !1 === n &&
                   (localStorage.setItem("isLoggedIn", !1),
-                  (n.currentPath = "/auth")),
+                  (i.currentPath = "/auth")),
               !0
             ),
           }
         );
-        var o = r(669);
-        const i = r
-          .n(o)()
+        var a = n(669);
+        const s = n
+          .n(a)()
           .create({
             baseURL:
               "https://3463d6f8-081d-458b-8a57-59f1e5d0781a.mock.pstmn.io",
             timeout: 3e3,
             headers: { "Content-Type": "application/json" },
           });
-        class v {
+        class l {
           constructor() {
             return (
               (this.element = document.createElement("form")),
@@ -76,11 +76,11 @@
                     e.addEventListener("click", (e) => {
                       e.preventDefault();
                       const t = document.querySelector(".signup-form"),
-                        r = document.querySelector(".login-form");
+                        n = document.querySelector(".login-form");
                       t.classList.remove("visibleFromView"),
                         t.classList.add("hiddenFromView"),
-                        r.classList.remove("hiddenFromView"),
-                        r.classList.add("visibleFromView");
+                        n.classList.remove("hiddenFromView"),
+                        n.classList.add("visibleFromView");
                     }),
                     e
                   );
@@ -92,30 +92,30 @@
           async handleSubmit(e) {
             e.preventDefault();
             const t = document.querySelector("#signup-email"),
-              r = document.querySelector("#signup-password"),
-              o = document.querySelector("#signup-username"),
-              v = document.querySelector("#signup-fullname"),
-              c = document.querySelector("#signup-address"),
-              n = document.querySelector("#signup-birthday");
+              n = document.querySelector("#signup-password"),
+              a = document.querySelector("#signup-username"),
+              l = document.querySelector("#signup-fullname"),
+              o = document.querySelector("#signup-address"),
+              i = document.querySelector("#signup-birthday");
             await (async (e) => {
               try {
                 "Successfully registered!" ==
-                  (await i.post("/profile/create-profile", e)).data.message &&
-                  (a.isLoggedIn = !0);
+                  (await s.post("/profile/create-profile", e)).data.message &&
+                  (r.isLoggedIn = !0);
               } catch (e) {
                 console.log(e);
               }
             })({
               email: t.value,
-              password: r.value,
-              username: o.value,
-              fullname: v.value,
-              address: c.value,
-              birthday: n.value,
+              password: n.value,
+              username: a.value,
+              fullname: l.value,
+              address: o.value,
+              birthday: i.value,
             });
           }
         }
-        class c {
+        class o {
           constructor() {
             return (
               (this.element = document.createElement("form")),
@@ -159,9 +159,9 @@
                     e.addEventListener("click", (e) => {
                       e.preventDefault();
                       const t = document.querySelector(".signup-form"),
-                        r = document.querySelector(".login-form");
-                      r.classList.remove("visibleFromView"),
-                        r.classList.add("hiddenFromView"),
+                        n = document.querySelector(".login-form");
+                      n.classList.remove("visibleFromView"),
+                        n.classList.add("hiddenFromView"),
                         t.classList.remove("hiddenFromView"),
                         t.classList.add("visibleFromView");
                     }),
@@ -175,19 +175,19 @@
           async handleSubmit(e) {
             e.preventDefault();
             const t = document.querySelector("#login-email"),
-              r = document.querySelector("#login-password");
+              n = document.querySelector("#login-password");
             await (async (e) => {
               try {
                 "Successfully logged in!" ==
-                  (await i.post("/profile/login", e)).data.message &&
-                  (a.isLoggedIn = !0);
+                  (await s.post("/profile/login", e)).data.message &&
+                  (r.isLoggedIn = !0);
               } catch (e) {
                 console.log(e);
               }
-            })({ email: t.value, password: r.value });
+            })({ email: t.value, password: n.value });
           }
         }
-        const n = new Proxy(
+        const i = new Proxy(
           {
             routes: [
               {
@@ -213,10 +213,10 @@
                           const e = document.createElement("button");
                           return (
                             (e.className =
-                              "text-2xl \n                               text-white\n                               bg-dark-800\n                               my-8\n                               py-4\n                               px-20\n                               rounded-full\n                               shadow-sm\n                               shadow-dark-500\n                               hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover:transform hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover:bg-dark-600 hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover:shadow-2xl hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover:shadow-dark-800 hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover:-translate-y-2 hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover: hover:\n                               active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active:transform active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active:bg-dark-100 active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active:shadow-2xl active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active:shadow-dark-800 active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active:-translate-y-1 active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active: active:\n                               transition-all"),
+                              "text-2xl text-white bg-dark-800 my-8 py-4 px-20 rounded-full shadow-sm shadow-dark-500 hover:(transform bg-dark-600 shadow-2xl shadow-dark-800 -translate-y-2 active: active:transform active:bg-dark-100 active:shadow-2xl active:shadow-dark-800 active:-translate-y-1 transition-all"),
                             (e.textContent = "Logout"),
                             e.addEventListener("click", () => {
-                              a.isLoggedIn = !1;
+                              r.isLoggedIn = !1;
                             }),
                             e
                           );
@@ -261,8 +261,8 @@
                       (this.element = document.createElement("main")),
                       (this.element.className =
                         "flex flex-row justify-center items-center min-h-[calc(100vh-4rem)] mt-4"),
-                      this.element.appendChild(new v()),
-                      this.element.appendChild(new c()),
+                      this.element.appendChild(new l()),
+                      this.element.appendChild(new o()),
                       this.element
                     );
                   }
@@ -274,35 +274,35 @@
             currentPath: "/",
           },
           {
-            set: (e, t, r) =>
-              "currentPath" !== t || ("/auth" == r && a.isLoggedIn)
-                ? ((e[t] = r), !0)
-                : (history.pushState(null, null, r),
-                  u.render(e.routes.find((e) => e.path === r)),
-                  (e[t] = r),
+            set: (e, t, n) =>
+              "currentPath" !== t || ("/auth" == n && r.isLoggedIn)
+                ? ((e[t] = n), !0)
+                : (history.pushState(null, null, n),
+                  h.render(e.routes.find((e) => e.path === n)),
+                  (e[t] = n),
                   !0),
           }
         );
-        class h {
+        class d {
           constructor(e) {
             const t = e.path;
             (this.el = document.createElement("li")),
               (this.el.className =
                 "h-[calc(100%)] flex flex-1 justify-center items-center cursor-pointer");
-            const r = document.createElement("a");
+            const n = document.createElement("a");
             return (
-              (r.className =
+              (n.className =
                 "cursor-pointer text-white text-xl nav-list--link h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:bg-dark-50"),
-              (r.textContent = e.name),
-              this.el.appendChild(r),
-              r.addEventListener("click", () => {
-                n.currentPath = t;
+              (n.textContent = e.name),
+              this.el.appendChild(n),
+              n.addEventListener("click", () => {
+                i.currentPath = t;
               }),
               this.el
             );
           }
         }
-        class s {
+        class c {
           constructor(e) {
             (this.el = document.createElement("header")),
               (this.el.className =
@@ -310,29 +310,29 @@
             const t = document.createElement("p");
             (t.className = "text-3xl text-white ml-5"),
               (t.innerHTML = "N<sup>2</sup>IPD");
-            const r = document.createElement("ul");
+            const n = document.createElement("ul");
             return (
-              (r.className = "flex flex-row h-16"),
+              (n.className = "flex flex-row h-16"),
               e.forEach((e) => {
-                "/auth" !== e.path && r.appendChild(new h(e));
+                "/auth" !== e.path && n.appendChild(new d(e));
               }),
               this.el.appendChild(t),
-              this.el.appendChild(r),
+              this.el.appendChild(n),
               this.el
             );
           }
         }
-        class l {
+        class u {
           constructor(e, t) {
             return (
               (this.element = document.createElement("div")),
-              this.element.insertAdjacentElement("afterbegin", new s(t)),
+              this.element.insertAdjacentElement("afterbegin", new c(t)),
               this.element.appendChild(new e()),
               this.element
             );
           }
         }
-        class d {
+        class m {
           constructor(e) {
             return (
               (this.element = document.createElement("div")),
@@ -341,16 +341,16 @@
             );
           }
         }
-        const u = new (class {
+        const h = new (class {
             constructor() {
-              (this.routes = n.routes),
+              (this.routes = i.routes),
                 (this.el = document.querySelector("body"));
             }
             render(e) {
               this.el.firstElementChild &&
                 this.el.removeChild(this.el.firstElementChild),
                 "/auth" !== e.path
-                  ? (this.el.appendChild(new l(e.func, this.routes)),
+                  ? (this.el.appendChild(new u(e.func, this.routes)),
                     document
                       .querySelectorAll(".nav-list--link")
                       .forEach((t) => {
@@ -358,80 +358,80 @@
                           ? t.classList.add("active")
                           : t.classList.remove("active");
                       }))
-                  : this.el.appendChild(new d(e.func));
+                  : this.el.appendChild(new m(e.func));
             }
           })(),
-          m = window.location.pathname,
-          p = localStorage.getItem("isLoggedIn");
-        null === p
-          ? (localStorage.setItem("isLoggedIn", !1), (n.currentPath = "/auth"))
-          : "true" === p
-          ? ((a.isLoggedIn = !0), (n.currentPath = "/auth" !== m ? m : "/"))
-          : "false" == p && (n.currentPath = "/auth"),
+          p = window.location.pathname,
+          f = localStorage.getItem("isLoggedIn");
+        null === f
+          ? (localStorage.setItem("isLoggedIn", !1), (i.currentPath = "/auth"))
+          : "true" === f
+          ? ((r.isLoggedIn = !0), (i.currentPath = "/auth" !== p ? p : "/"))
+          : "false" == f && (i.currentPath = "/auth"),
           window.addEventListener("popstate", (e) => {
-            n.currentPath = e.target.location.pathname;
+            i.currentPath = e.target.location.pathname;
           });
       },
     },
-    r = {};
-  function a(e) {
-    var o = r[e];
-    if (void 0 !== o) return o.exports;
-    var i = (r[e] = { exports: {} });
-    return t[e](i, i.exports, a), i.exports;
+    n = {};
+  function r(e) {
+    var a = n[e];
+    if (void 0 !== a) return a.exports;
+    var s = (n[e] = { exports: {} });
+    return t[e](s, s.exports, r), s.exports;
   }
-  (a.m = t),
+  (r.m = t),
     (e = []),
-    (a.O = (t, r, o, i) => {
-      if (!r) {
-        var v = 1 / 0;
-        for (s = 0; s < e.length; s++) {
-          for (var [r, o, i] = e[s], c = !0, n = 0; n < r.length; n++)
-            (!1 & i || v >= i) && Object.keys(a.O).every((e) => a.O[e](r[n]))
-              ? r.splice(n--, 1)
-              : ((c = !1), i < v && (v = i));
-          if (c) {
-            e.splice(s--, 1);
-            var h = o();
-            void 0 !== h && (t = h);
+    (r.O = (t, n, a, s) => {
+      if (!n) {
+        var l = 1 / 0;
+        for (c = 0; c < e.length; c++) {
+          for (var [n, a, s] = e[c], o = !0, i = 0; i < n.length; i++)
+            (!1 & s || l >= s) && Object.keys(r.O).every((e) => r.O[e](n[i]))
+              ? n.splice(i--, 1)
+              : ((o = !1), s < l && (l = s));
+          if (o) {
+            e.splice(c--, 1);
+            var d = a();
+            void 0 !== d && (t = d);
           }
         }
         return t;
       }
-      i = i || 0;
-      for (var s = e.length; s > 0 && e[s - 1][2] > i; s--) e[s] = e[s - 1];
-      e[s] = [r, o, i];
+      s = s || 0;
+      for (var c = e.length; c > 0 && e[c - 1][2] > s; c--) e[c] = e[c - 1];
+      e[c] = [n, a, s];
     }),
-    (a.n = (e) => {
+    (r.n = (e) => {
       var t = e && e.__esModule ? () => e.default : () => e;
-      return a.d(t, { a: t }), t;
+      return r.d(t, { a: t }), t;
     }),
-    (a.d = (e, t) => {
-      for (var r in t)
-        a.o(t, r) &&
-          !a.o(e, r) &&
-          Object.defineProperty(e, r, { enumerable: !0, get: t[r] });
+    (r.d = (e, t) => {
+      for (var n in t)
+        r.o(t, n) &&
+          !r.o(e, n) &&
+          Object.defineProperty(e, n, { enumerable: !0, get: t[n] });
     }),
-    (a.o = (e, t) => Object.prototype.hasOwnProperty.call(e, t)),
+    (r.o = (e, t) => Object.prototype.hasOwnProperty.call(e, t)),
     (() => {
       var e = { 826: 0 };
-      a.O.j = (t) => 0 === e[t];
-      var t = (t, r) => {
-          var o,
-            i,
-            [v, c, n] = r,
-            h = 0;
-          if (v.some((t) => 0 !== e[t])) {
-            for (o in c) a.o(c, o) && (a.m[o] = c[o]);
-            if (n) var s = n(a);
+      r.O.j = (t) => 0 === e[t];
+      var t = (t, n) => {
+          var a,
+            s,
+            [l, o, i] = n,
+            d = 0;
+          if (l.some((t) => 0 !== e[t])) {
+            for (a in o) r.o(o, a) && (r.m[a] = o[a]);
+            if (i) var c = i(r);
           }
-          for (t && t(r); h < v.length; h++)
-            (i = v[h]), a.o(e, i) && e[i] && e[i][0](), (e[v[h]] = 0);
-          return a.O(s);
+          for (t && t(n); d < l.length; d++)
+            (s = l[d]), r.o(e, s) && e[s] && e[s][0](), (e[l[d]] = 0);
+          return r.O(c);
         },
-        r = (self.webpackChunktask2 = self.webpackChunktask2 || []);
-      r.forEach(t.bind(null, 0)), (r.push = t.bind(null, r.push.bind(r)));
+        n = (self.webpackChunktask2 = self.webpackChunktask2 || []);
+      n.forEach(t.bind(null, 0)), (n.push = t.bind(null, n.push.bind(n)));
     })();
-  var o = a.O(void 0, [669], () => a(203));
-  o = a.O(o);
+  var a = r.O(void 0, [669], () => r(203));
+  a = r.O(a);
 })();

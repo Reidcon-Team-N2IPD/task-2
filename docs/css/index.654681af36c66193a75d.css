@@ -113,6 +113,10 @@ sup {
   --tw-bg-opacity: 1;
   background-color: rgba(74, 74, 74, var(--tw-bg-opacity));
 }
+.bg-dark-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgba(28, 28, 30, var(--tw-bg-opacity));
+}
 .border-dark-100 {
   --tw-border-opacity: 1;
   border-color: rgba(60, 60, 60, var(--tw-border-opacity));
@@ -163,12 +167,6 @@ sup {
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-}
-.justify-evenly {
-  -webkit-box-pack: space-evenly;
-  -ms-flex-pack: space-evenly;
-  -webkit-justify-content: space-evenly;
-  justify-content: space-evenly;
 }
 .flex-1 {
   -webkit-box-flex: 1;
@@ -225,9 +223,6 @@ sup {
 .ml-5 {
   margin-left: 1.25rem;
 }
-.min-h-\[calc\(100vh-200px\)\] {
-  min-height: calc(100vh - 200px);
-}
 .min-h-\[calc\(100vh-4rem\)\] {
   min-height: calc(100vh - 4rem);
 }
@@ -275,6 +270,12 @@ sup {
   -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.shadow-2xl {
+  --tw-shadow-color: 0, 0, 0;
+  --tw-shadow: 0 25px 50px -12px rgba(var(--tw-shadow-color), 0.25);
+  -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
 .shadow-dark-500 {
   --tw-shadow-color: 31, 31, 31;
 }
@@ -282,6 +283,9 @@ sup {
   --tw-shadow-color: 24, 24, 24;
 }
 .active\:shadow-dark-800:active {
+  --tw-shadow-color: 24, 24, 24;
+}
+.shadow-dark-800 {
   --tw-shadow-color: 24, 24, 24;
 }
 .text-dark-600 {
@@ -305,9 +309,6 @@ sup {
 }
 .content-length {
   content: "length";
-}
-.w-\[calc\(50vw\)\] {
-  width: calc(50vw);
 }
 .w-\[100\%\] {
   width: 100%;
@@ -354,6 +355,9 @@ sup {
 }
 .active\:-translate-y-1:active {
   --tw-translate-y: -0.25rem;
+}
+.-translate-y-2 {
+  --tw-translate-y: -0.5rem;
 }
 .transition-all {
   -webkit-transition-property: all;
