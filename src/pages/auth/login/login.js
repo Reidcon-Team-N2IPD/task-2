@@ -1,14 +1,20 @@
+import { AuthHeader } from "../../../components/auth-header/auth-header";
 import { login } from "../../../services/api";
 
-export class Login {
+export class LoginPage {
   constructor() {
-    this.element = document.createElement("form");
-    this.element.className = "hiddenFromView login-form";
-    this.element.innerHTML = String.raw`
+    this.element = document.createElement("div");
+    this.element.appendChild(new AuthHeader());
+    const main = document.createElement("main");
+    main.className = "flex flex-col justify-center items-center";
+    const el = document.createElement("form");
+    el.className =
+      "login-form flex flex-col justify-evenly items-center w-[calc(50vw)] transition-all h-screen";
+    el.innerHTML = String.raw`
       <input type="email" id="login-email"   required   autocomplete="false"  name="login-email" class="mt-4 w-[100%] h-15 border-dark-100 p-3 text-xl border rounded-full" placeholder="Email">
       <input type="password" id="login-password"  required   autocomplete="false"  name="login-password" class="mt-4 w-[100%] h-15 border-dark-100 p-3 text-xl border rounded-full" placeholder="Password">
       `;
-    this.element.insertAdjacentElement(
+    el.insertAdjacentElement(
       "afterbegin",
       (function () {
         const h1 = document.createElement("h1");
@@ -17,8 +23,8 @@ export class Login {
         return h1;
       })()
     );
-    this.element.addEventListener("submit", this.handleSubmit);
-    this.element.appendChild(
+    el.addEventListener("submit", this.handleSubmit);
+    el.appendChild(
       (function () {
         const loginBtn = document.createElement("button");
         loginBtn.className =
@@ -28,26 +34,20 @@ export class Login {
         return loginBtn;
       })()
     );
-    this.element.appendChild(
+    el.appendChild(
       (function () {
         const linkToSignup = document.createElement("a");
         linkToSignup.className =
-          "text-xl text-blue-800 my-4 cursor-pointer  transition-all  hover:(underline)";
+          "text-xl text-blue-800 my-4 cursor-pointer  transition-all  hover:(underline) signup-link";
         linkToSignup.textContent =
           "Don't have an account yet? Create one now =>";
-        linkToSignup.addEventListener("click", (e) => {
-          e.preventDefault();
-          const signupForm = document.querySelector(".signup-form");
-          const loginForm = document.querySelector(".login-form");
-          loginForm.classList.remove("visibleFromView");
-          loginForm.classList.add("hiddenFromView");
-          signupForm.classList.remove("hiddenFromView");
-          signupForm.classList.add("visibleFromView");
-        });
+
         return linkToSignup;
       })()
     );
 
+    main.appendChild(el);
+    this.element.appendChild(main);
     return this.element;
   }
 

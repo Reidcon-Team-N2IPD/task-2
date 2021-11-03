@@ -1,6 +1,8 @@
+import { AuthPage } from "../pages/auth/auth";
+import { LoginPage } from "../pages/auth/login/login";
+import { SignupPage } from "../pages/auth/signup/signup";
 import { HomePage } from "../pages/home/Home";
 import { ProfilePage } from "../pages/profile/Profile";
-import { AuthPage } from "../pages/auth/auth";
 
 export const routes = [
   {
@@ -18,4 +20,16 @@ export const routes = [
     name: "Auth",
     path: "/auth",
   },
+  {
+    func: SignupPage,
+    name: "Signup",
+    path: "/signup",
+  },
+  {
+    func: LoginPage,
+    name: "Login",
+    path: "/login",
+  },
 ];
+
+// routes.find(r=> r.name == )

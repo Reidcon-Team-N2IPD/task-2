@@ -1,0 +1,26 @@
+.hiddenFromView {
+  display: none;
+}
+
+.visibleFromView {
+  @apply flex flex-col justify-evenly items-center w-[calc(50vw)] visible transition-all;
+  opacity: 0;
+  transform: translateY(10%);
+}
+
+.animated {
+  /* animation: slideInAndShow 0.5s linear; */
+  animation: slideInAndShow 0.5s linear 0.5s forwards;
+}
+
+@keyframes slideInAndShow {
+  0% {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
