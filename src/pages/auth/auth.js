@@ -95,7 +95,8 @@ export class AuthPage {
           "h-[calc(100vh-4rem)] w-[35vw] flex flex-col justify-center items-center mr-[100px]";
         const img = new Image();
         img.src = imgSrc;
-        img.style.height = "100vh";
+        img.style.height = "80vh";
+        img.style.width = "35vw";
         imgContainer.appendChild(img);
         main.appendChild(imgContainer);
 
@@ -104,7 +105,6 @@ export class AuthPage {
         return main;
       })()
     );
-
 
     return this.element;
   }
