@@ -97,5 +97,6 @@ export class Header {
     this.element.appendChild(p);
     this.element.appendChild(ul);
     return this.element;
+
   }
 }

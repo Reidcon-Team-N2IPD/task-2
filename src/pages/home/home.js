@@ -5,6 +5,7 @@ export class HomePage {
   constructor() {
     this.element = document.createElement("main");
     this.element.className = "home-page";
+
     this.element.insertAdjacentElement(
       "afterbegin",
       (function () {

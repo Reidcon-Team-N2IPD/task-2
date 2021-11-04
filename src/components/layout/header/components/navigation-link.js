@@ -10,6 +10,7 @@ export class NavigationLink {
     const link = document.createElement("a");
     link.className =
       "cursor-pointer text-white text-xl nav-list--link h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:(bg-dark-50)";
+
     link.textContent = route.name;
     this.el.appendChild(link);
     link.addEventListener("click", () => {

@@ -8,7 +8,7 @@ import { AuthLayout } from "./layouts/AuthLayout";
 class App {
   constructor() {
     this.routes = router.routes;
-    this.el = document.querySelector("body");
+    this.el = document.querySelector("body")
   }
 
   render(page) {
@@ -59,6 +59,7 @@ if (isLoggedIn === null) {
   } else {
     router.currentPath = path;
   }
+
 } else {
   if (isLoggedIn === "true") {
     AuthState.isLoggedIn = true;
@@ -68,6 +69,7 @@ if (isLoggedIn === null) {
       router.currentPath = "/";
     }
   } else if (isLoggedIn == "false") {
+
     if (path !== "/signup" && path !== "/login") {
       router.currentPath = "/auth";
     } else {
@@ -83,6 +85,7 @@ document.body.appendChild(
     return element;
   })()
 );
+
 
 window.addEventListener("popstate", (e) => {
   router.currentPath = e.target.location.pathname;

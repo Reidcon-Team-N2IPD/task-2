@@ -27,6 +27,7 @@ export const createProfile = async (profileDetails) => {
   }
 };
 
+
 export const login = async (loginDetails) => {
   try {
     const res = await api.post("/profile/login", loginDetails);
@@ -37,3 +38,4 @@ export const login = async (loginDetails) => {
     console.log(error);
   }
 };
+
