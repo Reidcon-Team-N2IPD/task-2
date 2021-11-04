@@ -26,3 +26,16 @@ export const createProfile = async (profileDetails) => {
     console.log(error);
   }
 };
+
+
+export const login = async (loginDetails) => {
+  try {
+    const res = await api.post("/profile/login", loginDetails);
+    if (res.data.message == "Successfully logged in!") {
+      AuthState.isLoggedIn = true;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
