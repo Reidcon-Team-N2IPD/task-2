@@ -5,7 +5,10 @@ export class MainLayout {
   constructor(routerView, routes) {
     this.element = document.createElement("div");
     this.element.insertAdjacentElement("afterbegin", new Header(routes));
-    document.body.appendChild(new BaseLoader());
+    const loader = document.querySelector(".loader");
+    if (!loader) {
+      document.body.appendChild(new BaseLoader());
+    }
     this.element.appendChild(new routerView());
     return this.element;
   }

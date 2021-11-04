@@ -1,0 +1,10 @@
+.view-profile-dialog {
+  @apply z-100 relative bg-white h-[60vh] w-[60vw] rounded-[5px] py-[4rem] px-[2rem] flex flex-col justify-center items-center;
+  opacity: 1;
+}
+
+.view-profile-dialog-wrapper {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  @apply flex flex-col justify-center items-center absolute w-screen h-screen top-0 left-0;
+}
