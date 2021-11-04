@@ -1,4 +1,4 @@
-import { AuthHeader } from "../../../components/auth-header/auth-header";
+import { AuthHeader } from "../../../components/layout/auth-header/AuthHeader";
 import { createProfile } from "../../../services/api";
 export class SignupPage {
   constructor() {

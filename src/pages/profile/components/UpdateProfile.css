@@ -1,0 +1,44 @@
+.update-profile-input {
+  @apply mt-2 w-[100%] h-10 border-dark-100 p-3 text-xl border rounded-[5px];
+}
+
+.update-profile-dialog {
+  @apply z-100 relative bg-white h-[70vh] w-[70vw] rounded-[5px] p-[2rem];
+  opacity: 1;
+}
+
+.update-profile-dialog-wrapper {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  @apply flex-col justify-center items-center absolute w-screen h-screen top-0 left-0;
+}
+
+.animated-wrapper-open {
+  animation: slideUp 0.2s ease-in forwards;
+}
+
+.animated-wrapper-close {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}

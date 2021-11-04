@@ -1,35 +1,5 @@
-// import { NavigationLink } from "./components/navigation-link";
-
-// export class Header {
-//   constructor(routes) {
-//     this.el = document.createElement("header");
-
-//     this.el.className =
-//       "flex flex-col md:flex-row justify-between items-center h-16 bg-dark-800 fixed top-0 left-0 w-[100vw]";
-
-//     const p = document.createElement("p");
-
-//     p.className = "text-3xl text-white ml-5";
-
-//     p.innerHTML = "N<sup>2</sup>IPD";
-
-//     const ul = document.createElement("ul");
-
-//     ul.className = "flex flex-row h-16";
-
-//     routes.forEach((route) => {
-//       if (route.path !== "/auth") {
-//         ul.appendChild(new NavigationLink(route));
-//       }
-//     });
-
-//     this.el.appendChild(p);
-
-//     this.el.appendChild(ul);
-
-//     return this.el;
-//   }
-// }
+import { router } from "../../../router/router";
+import { logout } from "../../../services/api";
 
 export class Header {
   constructor() {
@@ -40,6 +10,10 @@ export class Header {
     const p = document.createElement("p");
     p.className = "text-5xl text-dark-400 ml-8 font-bold";
     p.innerHTML = "N<sup>2</sup>IPD";
+    p.addEventListener("click", () => {
+      router.currentPath = "/";
+    });
+    p.style.cursor = "pointer";
     const ul = document.createElement("ul");
     ul.className = "flex flex-row h-16";
     ul.appendChild(
@@ -64,6 +38,9 @@ export class Header {
         link.className =
           "cursor-pointer text-dark-400 text-xl h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:(text-red-500)";
         link.textContent = "Members";
+        link.addEventListener("click", () => {
+          router.currentPath = "/members";
+        });
         li.appendChild(link);
         return li;
       })()
@@ -77,6 +54,9 @@ export class Header {
         link.className =
           "cursor-pointer text-dark-400 text-xl h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:(text-red-500)";
         link.textContent = "Profile";
+        link.addEventListener("click", () => {
+          router.currentPath = "/profile";
+        });
         li.appendChild(link);
         return li;
       })()
@@ -90,6 +70,9 @@ export class Header {
         link.className =
           "cursor-pointer text-dark-400 text-xl h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:(text-red-500)";
         link.textContent = "Logout";
+        link.addEventListener("click", () => {
+          logout();
+        });
         li.appendChild(link);
         return li;
       })()
@@ -97,6 +80,5 @@ export class Header {
     this.element.appendChild(p);
     this.element.appendChild(ul);
     return this.element;
-
   }
 }

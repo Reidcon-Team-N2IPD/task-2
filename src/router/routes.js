@@ -1,8 +1,9 @@
-import { AuthPage } from "../pages/auth/auth";
-import { LoginPage } from "../pages/auth/login/login";
-import { SignupPage } from "../pages/auth/signup/signup";
-import { HomePage } from "../pages/home/Home";
-import { ProfilePage } from "../pages/profile/Profile";
+import { AuthPage } from "../pages/auth/AuthPage";
+import { LoginPage } from "../pages/auth/login/LoginPage";
+import { SignupPage } from "../pages/auth/signup/SignupPage";
+import { HomePage } from "../pages/home/HomePage";
+import { MembersPage } from "../pages/members/MembersPage";
+import { ProfilePage } from "../pages/profile/ProfilePage";
 
 export const routes = [
   {
@@ -14,6 +15,11 @@ export const routes = [
     func: ProfilePage,
     name: "Profile",
     path: "/profile",
+  },
+  {
+    func: MembersPage,
+    name: "Members",
+    path: "/members",
   },
   {
     func: AuthPage,

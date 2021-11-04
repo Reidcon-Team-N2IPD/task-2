@@ -1,0 +1,30 @@
+.loader {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  @apply absolute flex items-center justify-center left-0 top-0 w-screen h-screen;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.show::after {
+  content: "";
+  position: absolute;
+  border: 10px solid #333; /* Light grey */
+  border-top: 10px solid rgb(48, 248, 198); /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

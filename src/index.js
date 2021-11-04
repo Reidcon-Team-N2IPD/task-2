@@ -4,11 +4,15 @@ import { router } from "./router/router";
 import { AuthState } from "./store/auth";
 import { MainLayout } from "./layouts/MainLayout";
 import { AuthLayout } from "./layouts/AuthLayout";
+import { BaseLoader } from "./components/base/base-loader/base-loader.js/base-loader";
 
 class App {
   constructor() {
     this.routes = router.routes;
-    this.el = document.querySelector("body")
+    this.el = document.querySelector("body");
+    new BaseLoader();
+
+    // console.log(baseLoader);
   }
 
   render(page) {
@@ -50,6 +54,7 @@ class App {
 }
 
 export const app = new App();
+
 const path = window.location.pathname;
 const isLoggedIn = localStorage.getItem("isLoggedIn");
 if (isLoggedIn === null) {
@@ -59,7 +64,6 @@ if (isLoggedIn === null) {
   } else {
     router.currentPath = path;
   }
-
 } else {
   if (isLoggedIn === "true") {
     AuthState.isLoggedIn = true;
@@ -69,7 +73,6 @@ if (isLoggedIn === null) {
       router.currentPath = "/";
     }
   } else if (isLoggedIn == "false") {
-
     if (path !== "/signup" && path !== "/login") {
       router.currentPath = "/auth";
     } else {
@@ -77,15 +80,6 @@ if (isLoggedIn === null) {
     }
   }
 }
-
-document.body.appendChild(
-  (function () {
-    const element = document.createElement("div");
-    element.className = "loader";
-    return element;
-  })()
-);
-
 
 window.addEventListener("popstate", (e) => {
   router.currentPath = e.target.location.pathname;

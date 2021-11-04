@@ -97,11 +97,10 @@ export class AuthPage {
         img.src = imgSrc;
         img.style.height = "80vh";
         img.style.width = "35vw";
+        img.alt = "Landing Page Image";
         imgContainer.appendChild(img);
         main.appendChild(imgContainer);
 
-        // main.appendChild(new Login());
-        // main.appendChild(new Signup());
         return main;
       })()
     );
