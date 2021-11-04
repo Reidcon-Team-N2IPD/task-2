@@ -1,9 +1,5 @@
-.update-profile-input {
-  @apply mt-2 w-[100%] h-10 border-dark-100 p-3 text-xl border rounded-[5px];
-}
-
 .update-profile-dialog {
-  @apply z-100 relative bg-white h-[70vh] w-[70vw] rounded-[5px] p-[2rem];
+  @apply z-100 relative bg-white  w-[50vw] rounded-[5px] pt-[4rem] pb-[2rem] px-[2rem]  flex flex-col justify-center items-center;
   opacity: 1;
 }
 
@@ -13,32 +9,18 @@
   @apply flex-col justify-center items-center absolute w-screen h-screen top-0 left-0;
 }
 
-.animated-wrapper-open {
-  animation: slideUp 0.2s ease-in forwards;
+.update-profile-form {
+  @apply flex flex-col justify-evenly items-center w-[90%] transition-all h-[100%] mt-8;
 }
 
-.animated-wrapper-close {
-  animation: slideDown 0.2s ease-out forwards;
+.update-profile-dialog-close-btn {
+  @apply text-3xl font-bold absolute top-[10px] right-[20px];
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.update-profile-dialog-heading {
+  @apply text-3xl text-dark-600;
 }
 
-@keyframes slideDown {
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-50%);
-  }
+.update-profile-form-submit-btn {
+  @apply h-15 w-[100%] text-2xl text-white bg-dark-800 my-8 py-4 px-20 rounded-[5px] shadow-sm shadow-dark-500 hover:(transform bg-dark-600 shadow-2xl shadow-dark-800 -translate-y-1) active:(transform bg-dark-100 shadow-2xl shadow-dark-800 -translate-y-[0.5]) transition-all;
 }

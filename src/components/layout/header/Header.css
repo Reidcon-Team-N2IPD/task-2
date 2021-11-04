@@ -1,0 +1,18 @@
+.header {
+  @apply flex flex-col md:flex-row justify-between items-center h-16 fixed top-0 left-0 w-[100%];
+}
+
+.header-brand {
+  @apply text-5xl text-dark-400 ml-8 font-bold cursor-pointer;
+}
+
+.header-nav-list {
+  @apply flex flex-row h-16;
+}
+
+.header-nav-list_item {
+  @apply h-[calc(100%)] flex flex-1 justify-center items-center cursor-pointer;
+}
+.header-nav-list_link {
+  @apply cursor-pointer text-dark-400 text-xl h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:(text-red-500);
+}

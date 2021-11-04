@@ -1,4 +1,5 @@
 import { router } from "../router/router";
+import { MembersState } from "./members";
 
 export const AuthState = new Proxy(
   {
@@ -13,6 +14,7 @@ export const AuthState = new Proxy(
       } else if (val === false) {
         localStorage.setItem("isLoggedIn", false);
         localStorage.setItem("profile", null);
+        MembersState.members = [];
         router.currentPath = "/auth";
       }
       return true;

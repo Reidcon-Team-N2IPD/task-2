@@ -10,21 +10,19 @@ export class ViewProfile {
     dialog.className = "view-profile-dialog";
 
     const viewProfileDetailsList = document.createElement("ul");
-    viewProfileDetailsList.className =
-      "flex flex-col justify-stretch items-center w-[100%] transition-all h-[100%] mt-16 ml-0 pl-0";
+    viewProfileDetailsList.className = "view-profile-details-list";
 
     const member = MembersState.members.find((m) => m.fullname === name);
     viewProfileDetailsList.innerHTML = String.raw`
-        <li class="h-16 w-[100%] bg-light-200 shadow-lg mt-4 px-4 text-xl flex justify-stretch items-center ">Name : ${member.fullname}</li>
-        <li class="h-16 w-[100%] bg-light-200 shadow-lg mt-4 px-4 text-xl flex justify-stretch items-center ">Birthday : ${member.birthday}</li>
-        <li class="h-16 w-[100%] bg-light-200 shadow-lg mt-4 px-4 text-xl flex justify-stretch items-center ">Address: ${member.address}</li>
-        <li class="h-16 w-[100%] bg-light-200 shadow-lg mt-4 px-4 text-xl flex justify-stretch items-center ">Email : ${member.email}</li>
+        <li class="view-profile-details-list_item">Name : ${member.fullname}</li>
+        <li class="view-profile-details-list_item">Birthday : ${member.birthday}</li>
+        <li class="view-profile-details-list_item">Address: ${member.address}</li>
+        <li class="view-profile-details-list_item">Email : ${member.email}</li>
     `;
 
     const closeButton = document.createElement("button");
     closeButton.innerHTML = String.raw`&times;`;
-    closeButton.className =
-      "text-3xl font-bold absolute top-[10px] right-[20px]";
+    closeButton.className = "view-profile-dialog-close-btn";
     closeButton.addEventListener("click", ViewProfile.destroy);
 
     dialog.appendChild(closeButton);
@@ -32,7 +30,7 @@ export class ViewProfile {
     dialog.appendChild(
       (function () {
         const h3 = document.createElement("h1");
-        h3.className = "text-3xl text-dark-600 mt-4";
+        h3.className = "view-profile-dialog-heading";
         h3.textContent = `Details of ${name}`;
         return h3;
       })()

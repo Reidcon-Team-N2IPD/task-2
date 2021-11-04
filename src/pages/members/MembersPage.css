@@ -1,3 +1,19 @@
-.members-page {
+.members-main {
   @apply flex flex-col justify-center items-center min-h-[calc(100vh-4rem)];
+}
+
+.members-list {
+  @apply flex flex-col justify-center items-start list-none;
+}
+
+.members-heading {
+  @apply text-3xl font-extralight;
+}
+
+.member-item {
+  @apply h-16 w-[80vw] bg-light-200 shadow-xl mt-4 px-4 text-xl flex  items-center cursor-pointer;
+}
+
+.member-item:hover {
+  transform: scale(1.01);
 }

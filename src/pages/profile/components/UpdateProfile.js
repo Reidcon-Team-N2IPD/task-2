@@ -7,25 +7,22 @@ export class UpdateProfile {
     this.element.className = "update-profile-dialog-wrapper hidden";
 
     const dialog = document.createElement("div");
-    dialog.className =
-      "update-profile-dialog flex flex-col justify-center items-center";
+    dialog.className = "update-profile-dialog";
 
     const updateProfileForm = document.createElement("form");
-    updateProfileForm.className =
-      "update-form flex flex-col justify-evenly items-center w-[90%] transition-all h-[100%] mt-16";
+    updateProfileForm.className = "update-profile-form";
 
     updateProfileForm.innerHTML = String.raw`
-      <input type="text" id="update-username"    required  autocomplete="false" name="update-username" class="update-profile-input" placeholder="Username">
-      <input type="text" id="update-fullname"  required   autocomplete="false"  name="update-fullname" class="update-profile-input" placeholder="Full Name">
-      <input type="text" id="update-address"   required  autocomplete="false" name="update-address" class="update-profile-input" placeholder="Address">
+      <input type="text" id="update-username"    required  autocomplete="false" name="update-username" class="input" placeholder="Username">
+      <input type="text" id="update-fullname"  required   autocomplete="false"  name="update-fullname" class="input" placeholder="Full Name">
+      <input type="text" id="update-address"   required  autocomplete="false" name="update-address" class="input" placeholder="Address">
       <label for="update-birthday"   required  class="text-lg mt-4">Birthday</label>
-      <input type="date" id="update-birthday" autocomplete="false" name="update-birthday" class="mt-4 h-15 border-dark-100 p-3 text-xl border">
+      <input type="date" required id="update-birthday" autocomplete="false" name="update-birthday" class="mt-4 h-15 border-dark-100 p-3 text-xl border">
     `;
 
     const closeButton = document.createElement("button");
     closeButton.innerHTML = String.raw`&times;`;
-    closeButton.className =
-      "text-3xl font-bold absolute top-[10px] right-[20px]";
+    closeButton.className = "update-profile-dialog-close-btn";
     closeButton.addEventListener("click", UpdateProfile.toggleDialog);
 
     dialog.appendChild(closeButton);
@@ -33,7 +30,7 @@ export class UpdateProfile {
     dialog.appendChild(
       (function () {
         const h3 = document.createElement("h1");
-        h3.className = "text-3xl text-dark-600 mt-4";
+        h3.className = "update-profile-dialog-heading";
         h3.textContent = "Update your profile";
         return h3;
       })()
@@ -43,8 +40,7 @@ export class UpdateProfile {
     updateProfileForm.appendChild(
       (function () {
         const updateBtn = document.createElement("button");
-        updateBtn.className =
-          "text-xl text-white bg-dark-800 my-4 py-4 px-20 rounded-[5px] shadow-sm shadow-dark-500 hover:(transform bg-dark-600 shadow-2xl shadow-dark-800 -translate-y-[1]) active:(transform bg-dark-100 shadow-2xl shadow-dark-800 -translate-y-[0.5]) transition-all";
+        updateBtn.className = "update-profile-form-submit-btn";
         updateBtn.textContent = "Update";
         updateBtn.type = "submit";
         return updateBtn;

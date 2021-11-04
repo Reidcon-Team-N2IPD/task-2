@@ -6,13 +6,13 @@ import "./MembersPage.css";
 export class MembersPage {
   constructor() {
     this.element = document.createElement("main");
-    this.element.className = "members-page";
+    this.element.className = "members-main";
 
     this.element.insertAdjacentElement(
       "afterbegin",
       (function () {
         const ul = document.createElement("ul");
-        ul.className = "flex flex-col justify-center items-start list-none";
+        ul.className = "members-list";
         return ul;
       })()
     );
@@ -23,7 +23,7 @@ export class MembersPage {
             "afterbegin",
             (function () {
               const h3 = document.createElement("h3");
-              h3.className = "text-3xl font-extralight";
+              h3.className = "members-heading";
               h3.innerText = `${
                 MembersState.members.length === 1
                   ? "There's only 1 customer."
@@ -34,8 +34,7 @@ export class MembersPage {
           );
           MembersState.members.forEach((member) => {
             const li = document.createElement("li");
-            li.className =
-              "h-16 w-[80vw] bg-light-200 shadow-xl mt-4 px-4 text-xl flex justify-stretch items-center cursor-pointer";
+            li.className = "member-item";
             li.textContent = member.fullname;
             li.addEventListener("click", () => {
               ViewProfile.render(member.fullname);
@@ -50,7 +49,7 @@ export class MembersPage {
         "afterbegin",
         (function () {
           const h3 = document.createElement("h3");
-          h3.className = "text-3xl font-extralight";
+          h3.className = "members-heading";
           h3.innerText = `${
             MembersState.members.length === 1
               ? "There's only 1 customer."
@@ -61,9 +60,11 @@ export class MembersPage {
       );
       MembersState.members.forEach(function (member) {
         const li = document.createElement("li");
-        li.className =
-          "h-16 w-[80vw] bg-light-200 shadow-xl mt-4 px-4 text-xl flex justify-stretch items-center cursor-pointer";
+        li.className = "member-item";
         li.textContent = member.fullname;
+        li.addEventListener("click", () => {
+          ViewProfile.render(member.fullname);
+        });
         that.element.appendChild(li);
       });
     }

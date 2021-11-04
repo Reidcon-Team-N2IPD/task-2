@@ -3,7 +3,7 @@ import "./HomePage.css";
 export class HomePage {
   constructor() {
     this.element = document.createElement("main");
-    this.element.className = "home-page";
+    this.element.className = "home-main";
 
     this.element.insertAdjacentElement(
       "afterbegin",

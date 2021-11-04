@@ -1,24 +1,21 @@
-import { AuthHeader } from "../../../components/layout/auth-header/AuthHeader";
+import "./LoginPage.css";
 import { login } from "../../../services/api";
 
 export class LoginPage {
   constructor() {
-    this.element = document.createElement("div");
-    this.element.appendChild(new AuthHeader());
-    const main = document.createElement("main");
-    main.className = "flex flex-col justify-center items-center";
+    this.element = document.createElement("main");
+    this.element.className = "login-main";
     const el = document.createElement("form");
-    el.className =
-      "login-form flex flex-col justify-evenly items-center w-[calc(50vw)] transition-all h-screen";
+    el.className = "login-form";
     el.innerHTML = String.raw`
-      <input type="email" id="login-email"   required   autocomplete="false"  name="login-email" class="mt-4 w-[100%] h-15 border-dark-100 p-3 text-xl border rounded-full" placeholder="Email">
-      <input type="password" id="login-password"  required   autocomplete="false"  name="login-password" class="mt-4 w-[100%] h-15 border-dark-100 p-3 text-xl border rounded-full" placeholder="Password">
+      <input type="email" id="login-email"   required   autocomplete="false"  name="login-email" class="input" placeholder="Email">
+      <input type="password" id="login-password"  required   autocomplete="false"  name="login-password" class="input" placeholder="Password">
       `;
     el.insertAdjacentElement(
       "afterbegin",
       (function () {
         const h1 = document.createElement("h1");
-        h1.className = "text-5xl text-dark-600 mt-16";
+        h1.className = "login-header";
         h1.textContent = "Login";
         return h1;
       })()
@@ -27,8 +24,7 @@ export class LoginPage {
     el.appendChild(
       (function () {
         const loginBtn = document.createElement("button");
-        loginBtn.className =
-          "text-2xl text-white bg-dark-800 my-8 py-4 px-20 rounded-full shadow-sm shadow-dark-500 hover:(transform bg-dark-600 shadow-2xl shadow-dark-800 -translate-y-2) active:(transform bg-dark-100 shadow-2xl shadow-dark-800 -translate-y-1) transition-all";
+        loginBtn.className = "login-form-submit-btn";
         loginBtn.textContent = "Login";
         loginBtn.type = "submit";
         return loginBtn;
@@ -37,17 +33,14 @@ export class LoginPage {
     el.appendChild(
       (function () {
         const linkToSignup = document.createElement("a");
-        linkToSignup.className =
-          "text-xl text-blue-800 my-4 cursor-pointer  transition-all  hover:(underline) signup-link";
-        linkToSignup.textContent =
-          "Don't have an account yet? Create one now =>";
+        linkToSignup.className = "change-to-signup signup-link";
+        linkToSignup.textContent = "Don't have an account yet? Join NOW =>";
 
         return linkToSignup;
       })()
     );
 
-    main.appendChild(el);
-    this.element.appendChild(main);
+    this.element.appendChild(el);
     return this.element;
   }
 

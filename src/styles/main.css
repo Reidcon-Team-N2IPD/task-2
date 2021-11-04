@@ -3,3 +3,37 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+.animated-wrapper-open {
+  animation: slideUp 0.2s ease-in forwards;
+}
+
+.animated-wrapper-close {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+}
+
+.input {
+  @apply mt-4 w-[100%] h-15 border-dark-100 p-3 text-xl border rounded-full;
+}
