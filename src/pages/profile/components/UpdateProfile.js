@@ -13,11 +13,25 @@ export class UpdateProfile {
     updateProfileForm.className = "update-profile-form";
 
     updateProfileForm.innerHTML = String.raw`
-      <input type="text" id="update-username"    required  autocomplete="false" name="update-username" class="input" placeholder="Username">
-      <input type="text" id="update-fullname"  required   autocomplete="false"  name="update-fullname" class="input" placeholder="Full Name">
-      <input type="text" id="update-address"   required  autocomplete="false" name="update-address" class="input" placeholder="Address">
-      <label for="update-birthday"   required  class="text-lg mt-4">Birthday</label>
-      <input type="date" required id="update-birthday" autocomplete="false" name="update-birthday" class="mt-4 h-15 border-dark-100 p-3 text-xl border">
+      <div class="input-group">
+        <input type="text" id="update-username"    required  autocomplete="false" name="update-username" class="input" placeholder="Username">
+        <label class="input-label" for="update-username">USERNAME</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="update-fullname"  required   autocomplete="false"  name="update-fullname" class="input" placeholder="Full Name">
+        <label class="input-label" for="update-fullname">FULL NAME</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="update-address"   required  autocomplete="false" name="update-address" class="input" placeholder="Address">
+        <label class="input-label" for="update-address">ADDRESS</label>
+      </div>
+
+      <div class="input-group">
+        <input type="date" required id="update-birthday" autocomplete="false" name="update-birthday" class="input">
+        <label for="update-birthday"   required  class="input-label-birth">BIRTHDAY</label>
+      </div>
     `;
 
     const closeButton = document.createElement("button");
@@ -31,7 +45,7 @@ export class UpdateProfile {
       (function () {
         const h3 = document.createElement("h1");
         h3.className = "update-profile-dialog-heading";
-        h3.textContent = "Update your profile";
+        h3.textContent = "UPDATE PROFILE";
         return h3;
       })()
     );
@@ -41,7 +55,7 @@ export class UpdateProfile {
       (function () {
         const updateBtn = document.createElement("button");
         updateBtn.className = "update-profile-form-submit-btn";
-        updateBtn.textContent = "Update";
+        updateBtn.textContent = "UPDATE";
         updateBtn.type = "submit";
         return updateBtn;
       })()
