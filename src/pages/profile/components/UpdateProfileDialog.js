@@ -1,4 +1,4 @@
-import "./UpdateProfile.css";
+import "./UpdateProfileDialog.css";
 import { updateProfile } from "../../../services/api";
 
 export class UpdateProfile {

@@ -8,6 +8,8 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -16,7 +18,7 @@ module.exports = {
   mode: "production",
   output: {
     filename: "js/[name].[contenthash].bundle.js",
-    path: path.resolve(__dirname, "docs"),
+    path: path.resolve(__dirname, "dist"),
     clean: true,
   },
   plugins: [
@@ -62,14 +64,15 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, "src", "robots.txt"),
-          to: path.resolve(__dirname, "docs", "robots.txt"),
+          to: path.resolve(__dirname, "dist", "robots.txt"),
         },
         {
           from: path.resolve(__dirname, "src", "sitemap.xml"),
-          to: path.resolve(__dirname, "docs", "sitemap.xml"),
+          to: path.resolve(__dirname, "dist", "sitemap.xml"),
         },
       ],
     }),
+    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     splitChunks: {

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BaseLoader } from "../components/base/base-loader/base-loader.js/base-loader";
-import { UpdateProfile } from "../pages/profile/components/UpdateProfile";
+import { UpdateProfile } from "../pages/profile/components/UpdateProfileDialog";
 import { AuthState } from "../store/auth";
 import { MembersState } from "../store/members";
 import { ProfileState } from "../store/profile";

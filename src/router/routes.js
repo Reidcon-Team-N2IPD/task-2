@@ -38,5 +38,3 @@ export default [
     path: "/signup",
   },
 ];
-
-// routes.find(r=> r.name == )

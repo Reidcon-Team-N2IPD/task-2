@@ -1,5 +1,5 @@
 import "./ProfilePage.css";
-import { UpdateProfile } from "./components/UpdateProfile";
+import { UpdateProfile } from "./components/UpdateProfileDialog";
 import { ProfileState } from "../../store/profile";
 export default class ProfilePage {
   constructor() {
