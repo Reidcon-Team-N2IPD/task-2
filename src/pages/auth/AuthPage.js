@@ -1,4 +1,4 @@
-import "./Authpage.css";
+import "./AuthPage.css";
 import imgSrc from "../../assets/landing.svg";
 
 export class AuthPage {

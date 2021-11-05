@@ -7,7 +7,7 @@
 }
 
 .auth-heading {
-  @apply self-start text-5xl text-[#27DEBF] font-600 mb-4;
+  @apply self-start text-5xl text-[var(--color-primary)] font-600 mb-4;
 }
 
 .auth-subheading {

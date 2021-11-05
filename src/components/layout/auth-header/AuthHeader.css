@@ -29,5 +29,5 @@
 }
 
 .auth-header-signup-link_link {
-  @apply cursor-pointer bg-[#27DEBF] text-[16px] text-white w-[112px] h-[60%] rounded-[5px] pl-5 pr-5  flex justify-center items-center transition-all;
+  @apply cursor-pointer bg-[var(--color-primary)] text-[16px] text-white w-[112px] h-[60%] rounded-[5px] pl-5 pr-5  flex justify-center items-center transition-all;
 }

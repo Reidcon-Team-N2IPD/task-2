@@ -1,3 +1,4 @@
+import "core-js/stable";
 import "windi.css";
 import "./styles/main.css";
 import { router } from "./router/router";
@@ -5,6 +6,7 @@ import { AuthState } from "./store/auth";
 import { MainLayout } from "./layouts/MainLayout";
 import { AuthLayout } from "./layouts/AuthLayout";
 import { BaseLoader } from "./components/base/base-loader/base-loader.js/base-loader";
+import { ProfileState } from "./store/profile";
 
 class App {
   constructor() {
@@ -66,7 +68,9 @@ if (isLoggedIn === null) {
   }
 } else {
   if (isLoggedIn === "true") {
+    const profile = JSON.parse(localStorage.getItem("profile"));
     AuthState.isLoggedIn = true;
+    ProfileState.profile = profile;
     if (path !== "/auth") {
       router.currentPath = path;
     } else {

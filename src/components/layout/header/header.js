@@ -30,7 +30,7 @@ export class Header {
     ul.appendChild(
       (function () {
         const li = document.createElement("li");
-        li.className = "header-nav-list_item login-link";
+        li.className = "header-nav-list_item";
         const link = document.createElement("a");
         link.className = "header-nav-list_link";
         link.textContent = "Members";
@@ -44,7 +44,7 @@ export class Header {
     ul.appendChild(
       (function () {
         const li = document.createElement("li");
-        li.className = "header-nav-list_item signup-link";
+        li.className = "header-nav-list_item";
         const link = document.createElement("a");
         link.className = "header-nav-list_link";
         link.textContent = "Profile";
@@ -58,9 +58,9 @@ export class Header {
     ul.appendChild(
       (function () {
         const li = document.createElement("li");
-        li.className = "header-nav-list_item signup-link";
+        li.className = "header-nav-list_item";
         const link = document.createElement("a");
-        link.className = "header-nav-list_link";
+        link.className = "header-nav-list_link logout-btn";
         link.textContent = "Logout";
         link.addEventListener("click", () => {
           logout();

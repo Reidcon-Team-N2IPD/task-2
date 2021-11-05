@@ -3,6 +3,7 @@ import { BaseLoader } from "../components/base/base-loader/base-loader.js/base-l
 import { UpdateProfile } from "../pages/profile/components/UpdateProfile";
 import { AuthState } from "../store/auth";
 import { MembersState } from "../store/members";
+import { ProfileState } from "../store/profile";
 
 const api = axios.create({
   baseURL: "https://3463d6f8-081d-458b-8a57-59f1e5d0781a.mock.pstmn.io",
@@ -40,6 +41,8 @@ export const createProfile = async (profileDetails) => {
     const res = await api.post("/profile/create", profileDetails);
     if (res.data.message == "Successfully registered!") {
       AuthState.isLoggedIn = true;
+      ProfileState.profile = res.data.profile;
+      localStorage.setItem("profile", JSON.stringify(res.data.profile));
     }
   } catch (error) {
     console.log(error);
@@ -67,6 +70,7 @@ export const login = async (loginDetails) => {
     const res = await api.post("/profile/login", loginDetails);
     if (res.data.message == "Successfully logged in!") {
       localStorage.setItem("profile", JSON.stringify(res.data.profile));
+      ProfileState.profile = res.data.profile;
       AuthState.isLoggedIn = true;
     }
   } catch (error) {
@@ -78,4 +82,6 @@ export const login = async (loginDetails) => {
 
 export const logout = () => {
   AuthState.isLoggedIn = false;
+  ProfileState.profile = null;
+  localStorage.setItem("profile", null);
 };
