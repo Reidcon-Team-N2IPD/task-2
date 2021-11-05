@@ -39,5 +39,64 @@ body {
 }
 
 .input {
-  @apply mt-4 w-[100%] h-15 border-dark-100 p-3 text-xl border rounded-full;
+  @apply mt-7 w-[100%] h-15 border-none p-2 text-xl border;
+  order: 2;
+  border-bottom: 2px solid black;
+  background-color: transparent;
+}
+.input::placeholder {
+  opacity: 0;
+}
+.input:focus {
+  outline: none;
+}
+.input-group:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  width: 0;
+  height: 2px;
+  transition: width 0.3s;
+}
+.input-group:focus-within::after {
+  width: 100%;
+}
+
+.input-label-birth,
+.input-label {
+  position: absolute;
+  cursor: default;
+  order: 1;
+  font-weight: 600;
+}
+
+.input-label-birth {
+  top: 20%;
+  left: 10px;
+}
+
+.input-label {
+  top: 50%;
+  left: 10px;
+  transition: top 0.3s, left 0.3s, color 0.3s;
+}
+.input:not(:placeholder-shown) + .input-label,
+.input:focus + .input-label {
+  top: 20%;
+}
+.input:focus + .input-label {
+  color: var(--color-primary);
+}
+
+.input:focus + .input-label-birth {
+  color: var(--color-primary);
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
