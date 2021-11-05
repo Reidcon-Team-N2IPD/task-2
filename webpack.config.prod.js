@@ -2,9 +2,10 @@ const path = require("path");
 const zlib = require("zlib");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-// const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const WindiCSSWebpackPlugin = require("windicss-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
@@ -27,24 +28,24 @@ module.exports = {
       filename: "css/[name].[contenthash].css",
       chunkFilename: "css/[id].[contenthash].css",
     }),
-    // new FaviconsWebpackPlugin({
-    //   logo: "./src/assets/logo.png", // svg works too!
-    //   mode: "webapp", // optional can be 'webapp', 'light' or 'auto' - 'auto' by default
-    //   devMode: "webapp", // optional can be 'webapp' or 'light' - 'light' by default
-    //   favicons: {
-    //     appName: "ReidCon task 2",
-    //     appDescription:
-    //       "A Single Page Web Application Developed for reidcon competition task 2",
-    //     developerName: "N2IPD",
-    //     developerURL: null, // prevent retrieving from the nearest package.json
-    //     background: "#ddd",
-    //     theme_color: "#333",
-    //     icons: {
-    //       coast: false,
-    //       yandex: false,
-    //     },
-    //   },
-    // }),
+    new FaviconsWebpackPlugin({
+      logo: "./src/assets/logo.png", // svg works too!
+      mode: "webapp", // optional can be 'webapp', 'light' or 'auto' - 'auto' by default
+      devMode: "webapp", // optional can be 'webapp' or 'light' - 'light' by default
+      favicons: {
+        appName: "ReidCon task 2",
+        appDescription:
+          "A Single Page Web Application Developed for reidcon competition task 2",
+        developerName: "N2IPD",
+        developerURL: null, // prevent retrieving from the nearest package.json
+        background: "#ddd",
+        theme_color: "#333",
+        icons: {
+          coast: false,
+          yandex: false,
+        },
+      },
+    }),
     new WindiCSSWebpackPlugin(),
     new CompressionPlugin({
       filename: "[path][base].br",
@@ -83,6 +84,19 @@ module.exports = {
           format: {
             comments: false,
           },
+        },
+      }),
+      new CssMinimizerPlugin({
+        parallel: true,
+        minimizerOptions: {
+          preset: [
+            "default",
+            {
+              discardComments: {
+                removeAll: true,
+              },
+            },
+          ],
         },
       }),
     ],
