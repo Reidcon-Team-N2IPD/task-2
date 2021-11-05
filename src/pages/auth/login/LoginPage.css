@@ -7,7 +7,8 @@
 }
 
 .login-header {
-  @apply text-5xl text-dark-600 mt-16 mb-4;
+  @apply text-3xl text-dark-600;
+  font-weight: 600;
 }
 
 .login-form-submit-btn {
