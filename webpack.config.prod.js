@@ -63,6 +63,10 @@ module.exports = {
           from: path.resolve(__dirname, "src", "robots.txt"),
           to: path.resolve(__dirname, "docs", "robots.txt"),
         },
+        {
+          from: path.resolve(__dirname, "src", "sitemap.xml"),
+          to: path.resolve(__dirname, "docs", "sitemap.xml"),
+        },
       ],
     }),
   ],
