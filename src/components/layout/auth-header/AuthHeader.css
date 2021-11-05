@@ -3,7 +3,7 @@
 }
 
 .auth-header-brand {
-  @apply text-5xl text-dark-400 ml-8 font-bold cursor-pointer;
+  @apply text-4xl text-dark-400 ml-8 font-bold cursor-pointer;
 }
 
 .auth-header-navigation-list {
