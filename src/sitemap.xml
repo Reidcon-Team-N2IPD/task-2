@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://reidcon-task-2.web.app/</loc>
+    </url>
+    <url>
+        <loc>https://reidcon-task-2.web.app/auth</loc>
+    </url>
+    <url>
+        <loc>https://reidcon-task-2.web.app/signup</loc>
+    </url>
+    <url>
+        <loc>https://reidcon-task-2.web.app/login</loc>
+    </url>
+    <url>
+        <loc>https://reidcon-task-2.web.app/profile</loc>
+    </url>
+    <url>
+        <loc>https://reidcon-task-2.web.app/members</loc>
+    </url>
+</urlset> 

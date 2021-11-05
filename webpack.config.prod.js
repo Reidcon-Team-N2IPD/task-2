@@ -1,9 +1,12 @@
 const path = require("path");
+const zlib = require("zlib");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 // const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const WindiCSSWebpackPlugin = require("windicss-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -43,6 +46,29 @@ module.exports = {
     //   },
     // }),
     new WindiCSSWebpackPlugin(),
+    new CompressionPlugin({
+      filename: "[path][base].br",
+      algorithm: "brotliCompress",
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
+      },
+      deleteOriginalAssets: false,
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "robots.txt"),
+          to: path.resolve(__dirname, "docs", "robots.txt"),
+        },
+        {
+          from: path.resolve(__dirname, "src", "sitemap.xml"),
+          to: path.resolve(__dirname, "docs", "sitemap.xml"),
+        },
+      ],
+    }),
   ],
   optimization: {
     splitChunks: {

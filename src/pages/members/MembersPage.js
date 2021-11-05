@@ -3,7 +3,7 @@ import { MembersState } from "../../store/members";
 import { ViewProfile } from "./components/ViewProfile";
 import "./MembersPage.css";
 
-export class MembersPage {
+export default class MembersPage {
   constructor() {
     this.element = document.createElement("main");
     this.element.className = "members-main";

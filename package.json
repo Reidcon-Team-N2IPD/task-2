@@ -13,6 +13,8 @@
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "babel-loader": "^8.2.2",
+    "compression-webpack-plugin": "^9.0.0",
+    "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.4.0",
     "favicons": "^6.2.2",
     "favicons-webpack-plugin": "^5.0.2",
