@@ -14,7 +14,7 @@ import { BaseLoader } from "../components/base/base-loader/base-loader.js/base-l
 //   }
 // }
 
-export class AuthLayout {
+export default class AuthLayout {
   constructor(routerView) {
     this.element = document.createElement("div");
     this.element.insertAdjacentElement("afterbegin", new AuthHeader());

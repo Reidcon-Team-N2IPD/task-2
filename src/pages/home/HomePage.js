@@ -1,7 +1,7 @@
 import "./HomePage.css";
 import imgSrc from "../../assets/frameworks.svg";
 
-export class HomePage {
+export default class HomePage {
   constructor() {
     this.element = document.createElement("main");
     this.element.id = "landing-home";

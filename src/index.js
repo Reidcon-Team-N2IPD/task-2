@@ -3,42 +3,27 @@ import "windi.css";
 import "./styles/main.css";
 import { router } from "./router/router";
 import { AuthState } from "./store/auth";
-import { MainLayout } from "./layouts/MainLayout";
-import { AuthLayout } from "./layouts/AuthLayout";
 import { BaseLoader } from "./components/base/base-loader/base-loader.js/base-loader";
 import { ProfileState } from "./store/profile";
 
 class App {
   constructor() {
-    this.routes = router.routes;
     this.el = document.querySelector("body");
     new BaseLoader();
-
-    // console.log(baseLoader);
   }
 
-  render(page) {
+  async render(page) {
+    console.log("Called render");
     if (this.el.firstElementChild) {
       this.el.removeChild(this.el.firstElementChild);
     }
+    const pageClass = (await page.func()).default;
+    this.el.insertAdjacentElement("afterbegin", new page.layout(pageClass));
     if (
-      page.path !== "/auth" &&
-      page.path !== "/login" &&
-      page.path !== "/signup"
+      page.path === "/auth" ||
+      page.path === "/login" ||
+      page.path === "/signup"
     ) {
-      this.el.insertAdjacentElement(
-        "afterbegin",
-        new MainLayout(page.func, this.routes)
-      );
-      document.querySelectorAll(".nav-list--link").forEach((nav_link) => {
-        if (nav_link.textContent === page.name) {
-          nav_link.classList.add("active");
-        } else {
-          nav_link.classList.remove("active");
-        }
-      });
-    } else {
-      this.el.insertAdjacentElement("afterbegin", new AuthLayout(page.func));
       const loginLinks = document.querySelectorAll(".login-link");
       const signupLinks = document.querySelectorAll(".signup-link");
       loginLinks.forEach((link) => {

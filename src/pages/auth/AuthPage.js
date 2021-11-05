@@ -1,7 +1,7 @@
 import "./AuthPage.css";
 import imgSrc from "../../assets/landing.svg";
 
-export class AuthPage {
+export default class AuthPage {
   constructor() {
     this.element = document.createElement("main");
     this.element.id = "landing-auth";

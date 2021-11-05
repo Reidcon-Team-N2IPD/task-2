@@ -27,7 +27,6 @@ export const getAllProfiles = async () => {
     if (res.data.message == "Successfully fetched!") {
       MembersState.members = res.data.profiles;
     }
-    console.log(MembersState);
   } catch (error) {
     console.log(error);
   } finally {

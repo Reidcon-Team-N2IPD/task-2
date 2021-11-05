@@ -1,7 +1,7 @@
 import "./ProfilePage.css";
 import { UpdateProfile } from "./components/UpdateProfile";
 import { ProfileState } from "../../store/profile";
-export class ProfilePage {
+export default class ProfilePage {
   constructor() {
     this.element = document.createElement("main");
     const dialogWrapper = new UpdateProfile();
