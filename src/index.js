@@ -13,7 +13,6 @@ class App {
   }
 
   async render(page) {
-    console.log("Called render");
     if (this.el.firstElementChild) {
       this.el.removeChild(this.el.firstElementChild);
     }
