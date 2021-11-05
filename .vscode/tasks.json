@@ -7,6 +7,28 @@
       "problemMatcher": [],
       "label": "npm: deploy",
       "detail": "yarn build && firebase deploy"
+    },
+    {
+      "type": "npm",
+      "script": "dev",
+      "problemMatcher": [],
+      "label": "npm: dev",
+      "detail": "webpack serve --config webpack.config.dev.js --open"
+    },
+    {
+      "type": "npm",
+      "script": "serve",
+      "problemMatcher": [],
+      "label": "npm: serve",
+      "detail": "serve -s docs"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build",
+      "detail": "webpack --config webpack.config.prod.js"
     }
   ]
 }

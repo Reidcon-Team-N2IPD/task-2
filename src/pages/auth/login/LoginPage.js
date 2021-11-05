@@ -1,7 +1,7 @@
 import "./LoginPage.css";
 import { login } from "../../../services/api";
 
-export class LoginPage {
+export default class LoginPage {
   constructor() {
     this.element = document.createElement("main");
     this.element.className = "login-main";

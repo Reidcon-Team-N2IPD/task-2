@@ -10,7 +10,12 @@ export const AuthState = new Proxy(
       obj[prop] = val;
       if (val === true) {
         localStorage.setItem("isLoggedIn", true);
-        router.currentPath = "/";
+        if (
+          router.currentPath === "/login" ||
+          router.currentPath === "/signup"
+        ) {
+          router.currentPath = "/";
+        }
       } else if (val === false) {
         localStorage.setItem("isLoggedIn", false);
         localStorage.setItem("profile", null);

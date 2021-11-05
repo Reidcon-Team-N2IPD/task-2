@@ -1,6 +1,6 @@
 import "./SignupPage.css";
 import { createProfile } from "../../../services/api";
-export class SignupPage {
+export default class SignupPage {
   constructor() {
     this.element = document.createElement("main");
     this.element.className = "signup-main";
