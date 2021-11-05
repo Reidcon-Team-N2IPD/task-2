@@ -8,8 +8,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -72,7 +70,6 @@ module.exports = {
         },
       ],
     }),
-    new BundleAnalyzerPlugin(),
   ],
   optimization: {
     splitChunks: {

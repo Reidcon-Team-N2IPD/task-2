@@ -3,13 +3,15 @@ import "windi.css";
 import "./styles/main.css";
 import { router } from "./router/router";
 import { AuthState } from "./store/auth";
-import { BaseLoader } from "./components/base/base-loader/base-loader.js/base-loader";
+import { BaseLoader } from "./components/base/base-loader/BaseLoader";
+import { BaseNotifier } from "./components/base/base-notifier/BaseNotifier";
 import { ProfileState } from "./store/profile";
 
 class App {
   constructor() {
     this.el = document.querySelector("body");
     new BaseLoader();
+    new BaseNotifier();
   }
 
   async render(page) {

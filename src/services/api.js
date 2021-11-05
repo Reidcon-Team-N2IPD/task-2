@@ -1,5 +1,6 @@
 import axios from "axios";
-import { BaseLoader } from "../components/base/base-loader/base-loader.js/base-loader";
+import { BaseLoader } from "../components/base/base-loader/BaseLoader";
+import { BaseNotifier } from "../components/base/base-notifier/BaseNotifier";
 import { UpdateProfile } from "../pages/profile/components/UpdateProfileDialog";
 import { AuthState } from "../store/auth";
 import { MembersState } from "../store/members";
@@ -14,9 +15,12 @@ const api = axios.create({
 export const getProfileByUsername = async (username) => {
   try {
     const res = await api.get(`/profile?username=${username}`);
-    console.log(res);
   } catch (error) {
-    console.log(error);
+    BaseNotifier.notify({
+      message: error.message,
+      type: "error",
+      duration: 1500,
+    });
   }
 };
 
@@ -28,7 +32,11 @@ export const getAllProfiles = async () => {
       MembersState.members = res.data.profiles;
     }
   } catch (error) {
-    console.log(error);
+    BaseNotifier.notify({
+      message: error.message,
+      type: "error",
+      duration: 1500,
+    });
   } finally {
     BaseLoader.hide();
   }
@@ -43,8 +51,17 @@ export const createProfile = async (profileDetails) => {
       ProfileState.profile = res.data.profile;
       localStorage.setItem("profile", JSON.stringify(res.data.profile));
     }
+    BaseNotifier.notify({
+      message: "Successfully registered!",
+      type: "success",
+      duration: 1500,
+    });
   } catch (error) {
-    console.log(error);
+    BaseNotifier.notify({
+      message: error.message,
+      type: "error",
+      duration: 1500,
+    });
   } finally {
     BaseLoader.hide();
   }
@@ -55,9 +72,18 @@ export const updateProfile = async (profileDetails) => {
     BaseLoader.show();
     const res = await api.put("/profile/update", profileDetails);
     UpdateProfile.toggleDialog();
+    BaseNotifier.notify({
+      message: "Updated profile successfully",
+      type: "success",
+      duration: 1500,
+    });
   } catch (error) {
-    console.log(error);
     UpdateProfile.toggleDialog();
+    BaseNotifier.notify({
+      message: error.message,
+      type: "error",
+      duration: 1500,
+    });
   } finally {
     BaseLoader.hide();
   }
@@ -72,8 +98,17 @@ export const login = async (loginDetails) => {
       ProfileState.profile = res.data.profile;
       AuthState.isLoggedIn = true;
     }
+    BaseNotifier.notify({
+      message: "Successfully logged in!",
+      type: "success",
+      duration: 1500,
+    });
   } catch (error) {
-    console.log(error);
+    BaseNotifier.notify({
+      message: error.message,
+      type: "error",
+      duration: 1500,
+    });
   } finally {
     BaseLoader.hide();
   }
@@ -83,4 +118,32 @@ export const logout = () => {
   AuthState.isLoggedIn = false;
   ProfileState.profile = null;
   localStorage.setItem("profile", null);
+  BaseNotifier.notify({
+    message: "Successfully logged out!",
+    type: "success",
+    duration: 1500,
+  });
+};
+
+export const deleteProfile = async () => {
+  try {
+    BaseLoader.show();
+    await api.delete(
+      `/profile/delete?username=${ProfileState.profile.username}`
+    );
+    BaseNotifier.notify({
+      message: "Successfully logged out!",
+      type: "success",
+      duration: 1500,
+    });
+    logout();
+  } catch (error) {
+    BaseNotifier.notify({
+      message: error.message,
+      type: "error",
+      duration: 1500,
+    });
+  } finally {
+    BaseLoader.hide();
+  }
 };

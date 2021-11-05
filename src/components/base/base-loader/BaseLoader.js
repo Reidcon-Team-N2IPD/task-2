@@ -1,4 +1,4 @@
-import "./base-loader.css";
+import "./BaseLoader.css";
 export class BaseLoader {
   constructor() {
     this.el = document.createElement("div");
