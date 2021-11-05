@@ -30,7 +30,7 @@ export class AuthHeader {
         li.className = "auth-header-login-link_item login-link";
         const link = document.createElement("a");
         link.className = "auth-header-login-link_link";
-        link.textContent = "Login";
+        link.textContent = "LOGIN";
         li.appendChild(link);
         return li;
       })()
@@ -41,7 +41,7 @@ export class AuthHeader {
         li.className = "auth-header-signup-link_item signup-link";
         const link = document.createElement("a");
         link.className = "auth-header-signup-link_link";
-        link.textContent = "Signup";
+        link.textContent = "SIGNUP";
         li.appendChild(link);
         return li;
       })()

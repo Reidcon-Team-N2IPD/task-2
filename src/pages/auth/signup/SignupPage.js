@@ -4,47 +4,68 @@ export default class SignupPage {
   constructor() {
     this.element = document.createElement("main");
     this.element.className = "signup-main";
+    const form = document.createElement("form");
+    form.className = "signup-form";
 
-    const el = document.createElement("form");
-    el.className = "signup-form";
+    form.innerHTML = String.raw`
+      <div class="input-group">
+        <input type="email" id="signup-email"   required   autocomplete="off"  name="signup-email" class="input" placeholder="Email">
+        <label class="input-label" for="signup-email">EMAIL</label>
+      </div>
 
-    el.innerHTML = String.raw`
-   <input type="email" id="signup-email"   required   autocomplete="false"  name="signup-email" class="input" placeholder="Email">
-      <input type="password" id="signup-password"  required   autocomplete="false"  name="signup-password" class="input" placeholder="Password">
-      <input type="text" id="signup-username"    required  autocomplete="false" name="signup-username" class="input" placeholder="Username">
-        <input type="text" id="signup-fullname"  required   autocomplete="false"  name="signup-fullname" class="input" placeholder="Full Name">
-      <input type="text" id="signup-address"   required  autocomplete="false" name="signup-address" class="input" placeholder="Address">
-      <label for="signup=-birthday"   required  class="text-lg mt-4">Birthday</label>
-      <input type="date" required id="signup-birthday" autocomplete="false" name="signup-birthday" class="mt-4 h-15 border-dark-100 p-3 text-xl border">
+      <div class="input-group">
+        <input type="password" id="signup-password"  required   autocomplete="off"  name="signup-password" class="input" placeholder="Password">
+        <label class="input-label" for="signup-password">PASSWORD</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="signup-username"    required  autocomplete="off" name="signup-username" class="input" placeholder="Username">
+        <label class="input-label" for="signup-username">USER NAME</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="signup-fullname"  required   autocomplete="off"  name="signup-fullname" class="input" placeholder="Full Name">
+        <label class="input-label" for="signup-fullname">FULL NAME</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" id="signup-address"   required  autocomplete="off" name="signup-address" class="input" placeholder="Address">
+        <label class="input-label" for="signup-address">ADDRESS</label>
+      </div>
+
+      <div class="input-group">
+        <input type="date" required id="signup-birthday" autocomplete="false" name="signup-birthday" class="input" placeholder="birthday">
+        <label for="signup=-birthday"   required  class="input-label-birth">BIRTHDAY</label>
+      </div>
     `;
-    el.insertAdjacentElement(
+    form.insertAdjacentElement(
       "afterbegin",
       (function () {
         const h1 = document.createElement("h1");
         h1.className = "signup-header";
-        h1.textContent = "Create Profile";
+        h1.textContent = "CREATE PROFILE";
         return h1;
       })()
     );
-    el.addEventListener("submit", this.handleSubmit);
-    el.appendChild(
+    form.addEventListener("submit", this.handleSubmit);
+    form.appendChild(
       (function () {
         const signupBtn = document.createElement("button");
         signupBtn.className = "signup-form-submit-btn";
-        signupBtn.textContent = "Signup";
+        signupBtn.textContent = "SIGNUP";
         signupBtn.type = "submit";
         return signupBtn;
       })()
     );
-    el.appendChild(
+    form.appendChild(
       (function () {
         const linkToLogin = document.createElement("a");
         linkToLogin.className = "change-to-login login-link";
-        linkToLogin.textContent = "Already signed up? Log in here =>";
+        linkToLogin.textContent = "Already signed up? Log in here";
         return linkToLogin;
       })()
     );
-    this.element.appendChild(el);
+    this.element.appendChild(form);
     return this.element;
   }
 
