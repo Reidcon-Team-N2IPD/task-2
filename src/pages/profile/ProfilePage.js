@@ -24,11 +24,23 @@ export default class ProfilePage {
     const viewProfileDetailsList = document.createElement("ul");
     viewProfileDetailsList.className = "profile-details-list";
 
-    viewProfileDetailsList.innerHTML = String.raw`
-        <li class="profile-details-list_item">Birthday : ${this.profile.birthday}</li>
-        <li class="profile-details-list_item">Address: ${this.profile.address}</li>
-        <li class="profile-details-list_item">Email : ${this.profile.email}</li>
-    `;
+    const memberDetails = [
+      { label: "Birthday", field: this.profile.birthday },
+      { label: "Address", field: this.profile.address },
+      { label: "Email", field: this.profile.email },
+    ];
+
+    viewProfileDetailsList.innerHTML = memberDetails
+      .map(
+        (member) =>
+          String.raw`
+          <li class="profile-details-list_item">
+            <div class="profile-details-list_label">${member.label}:</div>
+            <div class="profile-details-list_field">${member.field}</div>
+          </li>
+        `
+      )
+      .join("");
 
     template.appendChild(viewProfileDetailsList);
 

@@ -14,9 +14,9 @@
   @apply h-[calc(100%)] flex flex-1 justify-center items-center cursor-pointer;
 }
 .header-nav-list_link {
-  @apply cursor-pointer text-dark-400 text-xl h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:(text-red-500);
+  @apply cursor-pointer text-dark-400 text-xl h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:(text-[var(--color-primary)]);
 }
 
 .logout-btn {
-  @apply ml-12 text-[var(--color-primary)];
+  @apply ml-12 text-[var(--color-primary)] hover:text-red-800;
 }

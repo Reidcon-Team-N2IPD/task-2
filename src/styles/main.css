@@ -4,6 +4,10 @@
   --color-primary: #e64f5a;
 }
 
+* {
+  @apply selection:bg-red-300;
+}
+
 body {
   font-family: "Roboto", sans-serif;
 }
@@ -39,49 +43,37 @@ body {
 }
 
 .input {
-  @apply mt-7 w-[100%] h-15 border-none p-2 text-xl border;
-  order: 2;
-  border-bottom: 2px solid black;
-  background-color: transparent;
+  @apply mt-7 w-[100%] h-15 p-2 text-xl border-black border-b-2 order-2 bg-transparent placeholder-transparent focus:outline-none;
 }
-.input::placeholder {
-  opacity: 0;
+
+.input-group {
+  @apply relative flex flex-col w-[100%] focus-within:after:w-[100%];
 }
-.input:focus {
-  outline: none;
-}
+
 .input-group:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: var(--color-primary);
-  width: 0;
-  height: 2px;
+  @apply content-[""] absolute bottom-0 left-0 bg-[var(--color-primary)] w-0 h-[2px];
   transition: width 0.3s;
-}
-.input-group:focus-within::after {
-  width: 100%;
 }
 
 .input-label-birth,
 .input-label {
-  position: absolute;
-  cursor: default;
-  order: 1;
-  font-weight: 600;
+  @apply absolute cursor-default order-1 font-semibold;
+}
+
+.input-label,
+.input-label-birth {
+  @apply left-1;
 }
 
 .input-label-birth {
-  top: 20%;
-  left: 10px;
+  @apply top-[20%];
 }
 
 .input-label {
-  top: 50%;
-  left: 10px;
+  @apply top-[50%];
   transition: top 0.3s, left 0.3s, color 0.3s;
 }
+
 .input:not(:placeholder-shown) + .input-label,
 .input:focus + .input-label {
   top: 20%;
@@ -92,11 +84,4 @@ body {
 
 .input:focus + .input-label-birth {
   color: var(--color-primary);
-}
-
-.input-group {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }

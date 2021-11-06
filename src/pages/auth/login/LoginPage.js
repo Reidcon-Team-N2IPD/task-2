@@ -5,20 +5,33 @@ export default class LoginPage {
   render() {
     const template = document.createElement("main");
     template.className = "login-main";
-    const el = document.createElement("form");
-    el.className = "login-form";
-    el.innerHTML = String.raw`
-      <div class="input-group">
-      <input type="email" id="login-email"   required   autocomplete="false"  name="login-email" class="input" placeholder="Email">
-        <label class="input-label" for="login-email">EMAIL</label>
-      </div>
+    const form = document.createElement("form");
+    form.className = "login-form";
+    
+    const loginForm = [
+      { type: "email", id: "login-email", placeholder: "Email" },
+      { type: "password", id: "login-password", placeholder: "Password" },
+    ];
 
-      <div class="input-group">
-      <input type="password" id="login-password"  required   autocomplete="false"  name="login-password" class="input" placeholder="Password">
-        <label class="input-label" for="login-password">PASSWORD</label>
-      </div>
-      `;
-    el.insertAdjacentElement(
+    form.innerHTML = loginForm
+      .map(
+        (item) =>
+          String.raw`
+        <div class="input-group">
+          <input type="${item.type}" id="${
+            item.id
+          }"   required   autocomplete="off"  name="${
+            item.id
+          }" class="input" placeholder="${item.placeholder}">
+          <label class="input-label" for="${
+            item.id
+          }">${item.placeholder.toUpperCase()}</label>
+        </div>
+      `
+      )
+      .join("");
+
+    form.insertAdjacentElement(
       "afterbegin",
       (function () {
         const h1 = document.createElement("h1");
@@ -27,8 +40,8 @@ export default class LoginPage {
         return h1;
       })()
     );
-    el.addEventListener("submit", this.handleSubmit);
-    el.appendChild(
+    form.addEventListener("submit", this.handleSubmit);
+    form.appendChild(
       (function () {
         const loginBtn = document.createElement("button");
         loginBtn.className = "login-form-submit-btn";
@@ -37,7 +50,7 @@ export default class LoginPage {
         return loginBtn;
       })()
     );
-    el.appendChild(
+    form.appendChild(
       (function () {
         const linkToSignup = document.createElement("a");
         linkToSignup.className = "change-to-signup signup-link";
@@ -46,8 +59,8 @@ export default class LoginPage {
         return linkToSignup;
       })()
     );
-
-    template.appendChild(el);
+    
+    template.appendChild(form);
     return template;
   }
 
