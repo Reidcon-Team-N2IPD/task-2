@@ -1,9 +1,9 @@
 .auth-main {
-  @apply flex flex-row justify-between items-center mt-16;
+  @apply h-[calc(100vh-4rem)] flex flex-col pl-20 pr-20 md:p-0 md:flex-row justify-around md:justify-between items-center mt-16;
 }
 
 .auth-container {
-  @apply h-[calc(100vh-4rem)] w-[38vw] flex flex-col justify-center items-center ml-[100px] text-justify;
+  @apply md:h-[calc(100vh-4rem)] order-2 md:order-1 md:w-[38vw] flex flex-col justify-center items-center md:ml-[50px] lg:ml-[100px] text-justify;
 }
 
 .auth-heading {
@@ -27,7 +27,7 @@
 }
 
 .auth-signup-btn {
-  @apply signup-link relative text-[16px] font-bold text-dark-800 bg-bg-white  h-[50px] ml-2 w-[200px] shadow-sm
+  @apply signup-link relative text-[16px] font-bold text-dark-800 bg-bg-white  h-[50px] ml-2 w-[200px] shadow-sm 
             border border-3 border-dark-800 shadow-dark-500 hover:( text-white shadow-2xl shadow-dark-800) active:(bg-dark-900 text-white shadow-2xl shadow-dark-800) transition-all;
 }
 
@@ -48,10 +48,9 @@
 }
 
 .auth-img-container {
-  @apply h-[calc(100vh-4rem)] w-[35vw] flex flex-col justify-center items-center mr-[100px];
+  @apply md:h-[calc(100vh-4rem)] md:w-[38vw] order-1 md:order-2 flex flex-col justify-center items-center md:mr-[50px] lg:mr-[100px];
 }
 
 .auth-img {
-  height: 80vh;
-  width: 35vw;
+  @apply max-w-[75%] md:h-[80vh];
 }
