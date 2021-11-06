@@ -5,11 +5,30 @@ import { ViewProfile } from "./components/ViewProfile";
 import "./MembersPage.css";
 
 export default class MembersPage {
-  constructor() {
-    this.element = document.createElement("main");
-    this.element.className = "members-main";
+  members = [];
 
-    this.element.insertAdjacentElement(
+  async loadMembers() {
+    if (MembersState.members.length === 0) {
+      try {
+        await getAllProfiles();
+        this.members = MembersState.members;
+      } catch (error) {
+        BaseNotifier.notify({
+          message: error.message,
+          type: "error",
+          duration: 5000,
+        });
+      }
+    } else {
+      this.members = MembersState.members;
+    }
+  }
+
+  render() {
+    const template = document.createElement("main");
+    template.className = "members-main";
+
+    template.insertAdjacentElement(
       "afterbegin",
       (function () {
         const ul = document.createElement("ul");
@@ -17,42 +36,9 @@ export default class MembersPage {
         return ul;
       })()
     );
-    if (MembersState.members.length === 0) {
-      getAllProfiles()
-        .then(() => {
-          this.element.insertAdjacentElement(
-            "afterbegin",
-            (function () {
-              const h3 = document.createElement("h3");
-              h3.className = "members-heading";
-              h3.innerText = `${
-                MembersState.members.length === 1
-                  ? "There's only 1 customer."
-                  : "There are " + MembersState.members.length + " members"
-              }`;
-              return h3;
-            })()
-          );
-          MembersState.members.forEach((member) => {
-            const li = document.createElement("li");
-            li.className = "member-item";
-            li.textContent = member.fullname;
-            li.addEventListener("click", () => {
-              ViewProfile.render(member.fullname);
-            });
-            this.element.firstChild.nextSibling.appendChild(li);
-          });
-        })
-        .catch((e) =>
-          BaseNotifier.notify({
-            message: e.message,
-            type: "error",
-            duration: 5000,
-          })
-        );
-    } else {
-      const that = this;
-      this.element.insertAdjacentElement(
+
+    this.loadMembers().then(() => {
+      template.insertAdjacentElement(
         "afterbegin",
         (function () {
           const h3 = document.createElement("h3");
@@ -65,17 +51,18 @@ export default class MembersPage {
           return h3;
         })()
       );
-      MembersState.members.forEach(function (member) {
+
+      this.members.forEach((member) => {
         const li = document.createElement("li");
         li.className = "member-item";
         li.textContent = member.fullname;
         li.addEventListener("click", () => {
           ViewProfile.render(member.fullname);
         });
-        that.element.appendChild(li);
+        template.appendChild(li);
       });
-    }
+    });
 
-    return this.element;
+    return template;
   }
 }

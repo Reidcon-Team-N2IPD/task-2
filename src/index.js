@@ -9,6 +9,7 @@ import { ProfileState } from "./store/profile";
 import routes from "./router/routes";
 
 class App {
+  currentPage = null;
   constructor() {
     this.el = document.querySelector("body");
     new BaseLoader();
@@ -16,13 +17,17 @@ class App {
   }
 
   async render(page) {
+    this.currentPage = null;
     if (this.el.firstElementChild) {
       this.el.removeChild(this.el.firstElementChild);
     }
+
     const pathFound = routes.find((route) => route.path === page.path);
     if (pathFound) {
       const pageClass = (await page.func()).default;
-      this.el.insertAdjacentElement("afterbegin", new page.layout(pageClass));
+      const view = new page.layout(pageClass);
+      this.currentPage = view;
+      this.el.insertAdjacentElement("afterbegin", view);
       if (
         page.path === "/auth" ||
         page.path === "/login" ||
@@ -44,10 +49,9 @@ class App {
     } else {
       const errorLayout = routes.find((route) => route.path === "/*");
       const pageClass = (await errorLayout.func()).default;
-      this.el.insertAdjacentElement(
-        "afterbegin",
-        new errorLayout.layout(pageClass)
-      );
+      const view = new errorLayout.layout(pageClass);
+      this.currentPage = view;
+      this.el.insertAdjacentElement("afterbegin", view);
     }
   }
 }

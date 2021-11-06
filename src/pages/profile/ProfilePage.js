@@ -3,23 +3,23 @@ import { UpdateProfile } from "./components/UpdateProfileDialog";
 import { DeleteProfile } from "./components/DeleteProfileDialog";
 import { ProfileState } from "../../store/profile";
 export default class ProfilePage {
-  constructor() {
-    this.element = document.createElement("main");
+  render() {
+    const template = document.createElement("main");
     const updateDialogWrapper = new UpdateProfile();
     const deleteDialogWrapper = new DeleteProfile();
-    this.element.className = "profile-main";
+    template.className = "profile-main";
     const heading = document.createElement("h1");
     heading.className = "profile-heading";
     this.profile = ProfileState.profile;
     const fullname = this.profile.fullname;
     heading.textContent = `${fullname}`;
-    this.element.insertAdjacentElement("afterbegin", heading);
+    template.insertAdjacentElement("afterbegin", heading);
 
     const avatar = document.createElement("img");
     avatar.className = "profile-avatar";
     avatar.src = this.profile.avatar;
 
-    this.element.appendChild(avatar);
+    template.appendChild(avatar);
 
     const viewProfileDetailsList = document.createElement("ul");
     viewProfileDetailsList.className = "profile-details-list";
@@ -30,7 +30,7 @@ export default class ProfilePage {
         <li class="profile-details-list_item">Email : ${this.profile.email}</li>
     `;
 
-    this.element.appendChild(viewProfileDetailsList);
+    template.appendChild(viewProfileDetailsList);
 
     const profileBtnContainer = document.createElement("div");
     profileBtnContainer.className = "profile-btn-container";
@@ -39,18 +39,18 @@ export default class ProfilePage {
     openUpdateDialogBtn.textContent = "Update Profile";
     openUpdateDialogBtn.className = "open-update-dialog-btn";
     profileBtnContainer.appendChild(openUpdateDialogBtn);
-    this.element.appendChild(updateDialogWrapper.element);
-    this.element.appendChild(deleteDialogWrapper.element);
+    template.appendChild(updateDialogWrapper.element);
+    template.appendChild(deleteDialogWrapper.element);
 
     const deleteAccountBtn = document.createElement("button");
     deleteAccountBtn.textContent = "Delete Account";
     deleteAccountBtn.className = "delete-account-btn";
     profileBtnContainer.appendChild(deleteAccountBtn);
 
-    this.element.appendChild(profileBtnContainer);
+    template.appendChild(profileBtnContainer);
 
     openUpdateDialogBtn.addEventListener("click", UpdateProfile.toggleDialog);
     deleteAccountBtn.addEventListener("click", DeleteProfile.toggleDialog);
-    return this.element;
+    return template;
   }
 }
