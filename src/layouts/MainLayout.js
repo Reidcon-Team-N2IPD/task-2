@@ -14,7 +14,8 @@ export default class MainLayout {
     if (!notifier) {
       document.body.appendChild(new BaseNotifier());
     }
-    this.element.appendChild(new routerView());
+    const page = new routerView();
+    this.element.appendChild(page.render());
     return this.element;
   }
 }

@@ -2,13 +2,13 @@ import "./AuthPage.css";
 import imgSrc from "../../assets/landing.svg";
 
 export default class AuthPage {
-  constructor() {
-    this.element = document.createElement("main");
-    this.element.id = "landing-auth";
-    this.element.className = "auth-main";
-    this.element.style.overflow = "hidden";
+  render() {
+    const template = document.createElement("main");
+    template.id = "landing-auth";
+    template.className = "auth-main";
+    template.style.overflow = "hidden";
 
-    this.element.innerHTML = String.raw`
+    template.innerHTML = String.raw`
         <div class="auth-container" id="auth-btn-container">
             <h1 class="auth-heading">
                 MOCK API
@@ -39,8 +39,8 @@ export default class AuthPage {
     img.className = "auth-img";
     img.alt = "Landing Page Image";
     imgContainer.appendChild(img);
-    this.element.appendChild(imgContainer);
+    template.appendChild(imgContainer);
 
-    return this.element;
+    return template;
   }
 }

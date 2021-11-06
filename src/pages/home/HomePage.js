@@ -2,13 +2,13 @@ import "./HomePage.css";
 import imgSrc from "../../assets/frameworks.svg";
 
 export default class HomePage {
-  constructor() {
-    this.element = document.createElement("main");
-    this.element.id = "landing-home";
-    this.element.className = "home-main";
-    this.element.style.overflow = "hidden";
+  render() {
+    const template = document.createElement("main");
+    template.id = "landing-home";
+    template.className = "home-main";
+    template.style.overflow = "hidden";
 
-    this.element.innerHTML = String.raw`
+    template.innerHTML = String.raw`
         <div class="home-container" id="home-btn-container">
             <h1 class="home-heading">
                 MOCK API
@@ -36,8 +36,7 @@ export default class HomePage {
     img.className = "home-img";
     img.alt = "Landing Page Image";
     imgContainer.appendChild(img);
-    this.element.appendChild(imgContainer);
-
-    return this.element;
+    template.appendChild(imgContainer);
+    return template;
   }
 }

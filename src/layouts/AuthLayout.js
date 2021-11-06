@@ -13,7 +13,7 @@ export default class AuthLayout {
     if (!notifier) {
       document.body.appendChild(new BaseNotifier());
     }
-    this.element.appendChild(new routerView());
+    this.element.appendChild(new routerView().render());
     return this.element;
   }
 }

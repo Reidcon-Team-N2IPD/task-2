@@ -1,9 +1,9 @@
 import "./SignupPage.css";
 import { createProfile } from "../../../services/api";
 export default class SignupPage {
-  constructor() {
-    this.element = document.createElement("main");
-    this.element.className = "signup-main";
+  render() {
+    const template = document.createElement("main");
+    template.className = "signup-main";
     const form = document.createElement("form");
     form.className = "signup-form";
 
@@ -91,8 +91,8 @@ export default class SignupPage {
         return linkToLogin;
       })()
     );
-    this.element.appendChild(form);
-    return this.element;
+    template.appendChild(form);
+    return template;
   }
 
   async handleSubmit(e) {
