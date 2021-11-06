@@ -12,7 +12,11 @@ export const router = new Proxy(
       if (prop === "currentPath") {
         if (!(val == "/auth" && AuthState.isLoggedIn)) {
           history.pushState(null, null, val);
-          await app.render(obj.routes.find((r) => r.path === val));
+          const pathExists = obj.routes.find((route) => route.path === val);
+
+          pathExists
+            ? await app.render(pathExists)
+            : await app.render(obj.routes[obj.routes.length - 1]);
           obj[prop] = val;
           return true;
         }

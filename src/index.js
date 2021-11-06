@@ -6,6 +6,7 @@ import { AuthState } from "./store/auth";
 import { BaseLoader } from "./components/base/base-loader/BaseLoader";
 import { BaseNotifier } from "./components/base/base-notifier/BaseNotifier";
 import { ProfileState } from "./store/profile";
+import routes from "./router/routes";
 
 class App {
   constructor() {
@@ -18,25 +19,35 @@ class App {
     if (this.el.firstElementChild) {
       this.el.removeChild(this.el.firstElementChild);
     }
-    const pageClass = (await page.func()).default;
-    this.el.insertAdjacentElement("afterbegin", new page.layout(pageClass));
-    if (
-      page.path === "/auth" ||
-      page.path === "/login" ||
-      page.path === "/signup"
-    ) {
-      const loginLinks = document.querySelectorAll(".login-link");
-      const signupLinks = document.querySelectorAll(".signup-link");
-      loginLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          router.currentPath = "/login";
+    const pathFound = routes.find((route) => route.path === page.path);
+    if (pathFound) {
+      const pageClass = (await page.func()).default;
+      this.el.insertAdjacentElement("afterbegin", new page.layout(pageClass));
+      if (
+        page.path === "/auth" ||
+        page.path === "/login" ||
+        page.path === "/signup"
+      ) {
+        const loginLinks = document.querySelectorAll(".login-link");
+        const signupLinks = document.querySelectorAll(".signup-link");
+        loginLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            router.currentPath = "/login";
+          });
         });
-      });
-      signupLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          router.currentPath = "/signup";
+        signupLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            router.currentPath = "/signup";
+          });
         });
-      });
+      }
+    } else {
+      const errorLayout = routes.find((route) => route.path === "/*");
+      const pageClass = (await errorLayout.func()).default;
+      this.el.insertAdjacentElement(
+        "afterbegin",
+        new errorLayout.layout(pageClass)
+      );
     }
   }
 }

@@ -1,3 +1,4 @@
+import { BaseNotifier } from "../../components/base/base-notifier/BaseNotifier";
 import { getAllProfiles } from "../../services/api";
 import { MembersState } from "../../store/members";
 import { ViewProfile } from "./components/ViewProfile";
@@ -42,7 +43,13 @@ export default class MembersPage {
             this.element.firstChild.nextSibling.appendChild(li);
           });
         })
-        .catch((e) => console.log(e));
+        .catch((e) =>
+          BaseNotifier.notify({
+            message: e.message,
+            type: "error",
+            duration: 5000,
+          })
+        );
     } else {
       const that = this;
       this.element.insertAdjacentElement(

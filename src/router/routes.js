@@ -1,5 +1,7 @@
 import MainLayout from "../layouts/MainLayout";
 import AuthLayout from "../layouts/AuthLayout";
+import ErrorLayout from "../layouts/ErrorLayout";
+
 export default [
   {
     func: () => import("../pages/home/HomePage"),
@@ -36,5 +38,11 @@ export default [
     layout: AuthLayout,
     name: "Signup",
     path: "/signup",
+  },
+  {
+    func: () => import("../pages/error/NotFoundPage"),
+    layout: ErrorLayout,
+    name: "404 Not Found",
+    path: "/*",
   },
 ];

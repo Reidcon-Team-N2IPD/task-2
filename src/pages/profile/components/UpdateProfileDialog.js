@@ -1,5 +1,6 @@
 import "./UpdateProfileDialog.css";
 import { updateProfile } from "../../../services/api";
+import { ProfileState } from "../../../store/profile";
 
 export class UpdateProfile {
   constructor() {
@@ -12,24 +13,26 @@ export class UpdateProfile {
     const updateProfileForm = document.createElement("form");
     updateProfileForm.className = "update-profile-form";
 
+    this.profile = ProfileState.profile;
+
     updateProfileForm.innerHTML = String.raw`
       <div class="input-group">
-        <input type="text" id="update-username"    required  autocomplete="false" name="update-username" class="input" placeholder="Username">
+        <input type="text" id="update-username"  value="${this.profile.username}"  required  autocomplete="false" name="update-username" class="input" placeholder="Username">
         <label class="input-label" for="update-username">USERNAME</label>
       </div>
 
       <div class="input-group">
-        <input type="text" id="update-fullname"  required   autocomplete="false"  name="update-fullname" class="input" placeholder="Full Name">
+        <input type="text" id="update-fullname"  required  value="${this.profile.fullname}"  autocomplete="false"  name="update-fullname" class="input" placeholder="Full Name">
         <label class="input-label" for="update-fullname">FULL NAME</label>
       </div>
 
       <div class="input-group">
-        <input type="text" id="update-address"   required  autocomplete="false" name="update-address" class="input" placeholder="Address">
+        <input type="text" id="update-address"   required value="${this.profile.address}"  autocomplete="false" name="update-address" class="input" placeholder="Address">
         <label class="input-label" for="update-address">ADDRESS</label>
       </div>
 
       <div class="input-group">
-        <input type="date" required id="update-birthday" autocomplete="false" name="update-birthday" class="input">
+        <input type="date" required id="update-birthday" autocomplete="false" value="${this.profile.birthday}" name="update-birthday" class="input">
         <label for="update-birthday"   required  class="input-label-birth">BIRTHDAY</label>
       </div>
     `;

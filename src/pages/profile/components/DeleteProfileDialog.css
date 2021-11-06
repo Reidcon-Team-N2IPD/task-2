@@ -1,5 +1,5 @@
 .delete-profile-dialog {
-  @apply z-100 relative bg-white  w-[50vw] rounded-[5px] pt-[4rem] pb-[2rem] px-[2rem]  flex flex-col justify-center items-center;
+  @apply z-100 relative bg-white  w-[30vw] rounded-[5px] pt-[4rem] pb-[2rem] px-[2rem]  flex flex-col justify-center items-center;
   opacity: 1;
 }
 
