@@ -2,9 +2,9 @@ import "./LoginPage.css";
 import { login } from "../../../services/api";
 
 export default class LoginPage {
-  constructor() {
-    this.element = document.createElement("main");
-    this.element.className = "login-main";
+  render() {
+    const template = document.createElement("main");
+    template.className = "login-main";
     const el = document.createElement("form");
     el.className = "login-form";
     el.innerHTML = String.raw`
@@ -47,8 +47,8 @@ export default class LoginPage {
       })()
     );
 
-    this.element.appendChild(el);
-    return this.element;
+    template.appendChild(el);
+    return template;
   }
 
   async handleSubmit(e) {

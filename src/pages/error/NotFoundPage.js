@@ -2,11 +2,11 @@ import "./NotFoundPage.css";
 import imgSrc from "../../assets/frameworks.svg";
 
 export default class NotFoundPage {
-  constructor() {
-    this.element = document.createElement("main");
-    this.element.id = "landing-not-found";
-    this.element.className = "not-found-main";
-    this.element.style.overflow = "hidden";
+  render() {
+    const template = document.createElement("main");
+    template.id = "landing-not-found";
+    template.className = "not-found-main";
+    template.style.overflow = "hidden";
 
     const imgContainer = document.createElement("div");
     imgContainer.className = "not-found-img-container";
@@ -15,8 +15,8 @@ export default class NotFoundPage {
     img.className = "not-found-img";
     img.alt = "Landing Page Image";
     imgContainer.appendChild(img);
-    this.element.appendChild(imgContainer);
+    template.appendChild(imgContainer);
 
-    return this.element;
+    return template;
   }
 }
