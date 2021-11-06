@@ -1,22 +1,87 @@
 .header {
-  @apply flex flex-col md:flex-row justify-between items-center h-16 fixed top-0 left-0 w-[100%];
+  @apply fixed flex flex-col p-3 md:flex-row md:justify-between md:items-center h-16 top-0 left-0 w-[100%];
 }
 
 .header-brand {
-  @apply text-4xl text-dark-400 ml-8 font-bold cursor-pointer;
+  @apply text-4xl text-dark-400 font-bold cursor-pointer;
 }
 
 .header-nav-list {
-  @apply flex flex-row h-16;
+  @apply flex flex-col items-end md:flex-row md:items-center md:h-16;
 }
 
 .header-nav-list_item {
-  @apply h-[calc(100%)] flex flex-1 justify-center items-center cursor-pointer;
+  @apply cursor-pointer p-2;
 }
+.header-nav-list > li {
+  @apply list-none;
+}
+
+.header-main {
+  @apply flex flex-row justify-between w-[100%];
+}
+
+.header-ham {
+  @apply block md:hidden relative h-[2rem] w-[2rem] cursor-pointer;
+}
+
+.header-ham span {
+  @apply block bg-[var(--color-primary)] w-[100%] h-[4px] mt-[-2px] absolute left-0 top-[50%];
+}
+
+.header-ham:before,
+.header-ham:after {
+  content: "";
+  @apply block bg-[var(--color-primary)] w-[100%] h-[4px] absolute left-0;
+  transform-origin: center center;
+  transform: rotate(0deg);
+  transition: all 0.3s ease;
+}
+
+.header-ham:before {
+  @apply top-[2px] mt-[-2px];
+}
+
+.header-ham:after {
+  @apply bottom-[2px] mb-[-2px];
+}
+
+.visible .header-ham span {
+  @apply bg-transparent;
+}
+
+.visible .header-ham:before {
+  @apply top-[50%];
+  transform: rotate(45deg);
+}
+
+.visible .header-ham:after {
+  @apply bottom-[50%];
+  transform: rotate(-45deg);
+}
+
 .header-nav-list_link {
-  @apply cursor-pointer text-dark-400 text-xl h-[100%] w-[100%] pl-5 pr-5  flex justify-center items-center transition-all hover:(text-red-500);
+  @apply cursor-pointer text-dark-400 text-xl h-[100%] w-[100%]  transition-all hover:(text-red-500);
+}
+.header-nav-list > li {
+  @apply list-none;
 }
 
 .logout-btn {
-  @apply ml-12 text-[var(--color-primary)];
+  @apply text-[var(--color-primary)];
+}
+
+@media screen and (max-width: 768px) {
+  .header-nav-list {
+    @apply absolute right-[-100%] top-[100%] min-w-[15rem] w-[50%] h-[calc(100vh-100%)] m-0 bg-[rgba(255,255,255,0.9)] backdrop-filter backdrop-blur-[1rem];
+    box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s;
+  }
+  .visible .header-nav-list {
+    right: 0%;
+  }
+
+  .header-nav-list > li {
+    @apply p-5 w-[100%] text-right;
+  }
 }
