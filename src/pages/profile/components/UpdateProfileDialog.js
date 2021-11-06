@@ -15,27 +15,53 @@ export class UpdateProfile {
 
     this.profile = ProfileState.profile;
 
-    updateProfileForm.innerHTML = String.raw`
-      <div class="input-group">
-        <input type="text" id="update-username"  value="${this.profile.username}"  required  autocomplete="false" name="update-username" class="input" placeholder="Username">
-        <label class="input-label" for="update-username">USERNAME</label>
-      </div>
+    const updateProfileFormDetails = [
+      {
+        type: "text",
+        id: "update-username",
+        field: this.profile.username,
+        placeholder: "Username",
+        labelClass: "input-label",
+      },
+      {
+        type: "text",
+        id: "update-fullname",
+        field: this.profile.fullname,
+        placeholder: "Full Name",
+        labelClass: "input-label",
+      },
+      {
+        type: "text",
+        id: "update-address",
+        field: this.profile.address,
+        placeholder: "Address",
+        labelClass: "input-label",
+      },
+      {
+        type: "date",
+        id: "update-birthday",
+        field: this.profile.birthday,
+        placeholder: "Birthday",
+        labelClass: "input-label-birth",
+      },
+    ];
 
-      <div class="input-group">
-        <input type="text" id="update-fullname"  required  value="${this.profile.fullname}"  autocomplete="false"  name="update-fullname" class="input" placeholder="Full Name">
-        <label class="input-label" for="update-fullname">FULL NAME</label>
-      </div>
-
-      <div class="input-group">
-        <input type="text" id="update-address"   required value="${this.profile.address}"  autocomplete="false" name="update-address" class="input" placeholder="Address">
-        <label class="input-label" for="update-address">ADDRESS</label>
-      </div>
-
-      <div class="input-group">
-        <input type="date" required id="update-birthday" autocomplete="false" value="${this.profile.birthday}" name="update-birthday" class="input">
-        <label for="update-birthday"   required  class="input-label-birth">BIRTHDAY</label>
-      </div>
-    `;
+    updateProfileForm.innerHTML = updateProfileFormDetails
+      .map(
+        (item) => String.raw`
+        <div class="input-group">
+          <input type="${item.type}" id="${item.id}"  value="${
+          item.field
+        }"  required  autocomplete="false" name="${
+          item.id
+        }" class="input" placeholder="${item.placeholder}">
+          <label class="${item.labelClass}" for="${
+          item.id
+        }">${item.placeholder.toUpperCase()}</label>
+        </div>
+    `
+      )
+      .join("");
 
     const closeButton = document.createElement("button");
     closeButton.innerHTML = String.raw`&times;`;

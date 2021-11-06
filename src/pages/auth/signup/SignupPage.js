@@ -7,37 +7,63 @@ export default class SignupPage {
     const form = document.createElement("form");
     form.className = "signup-form";
 
-    form.innerHTML = String.raw`
-      <div class="input-group">
-        <input type="email" id="signup-email"   required   autocomplete="off"  name="signup-email" class="input" placeholder="Email">
-        <label class="input-label" for="signup-email">EMAIL</label>
-      </div>
+    const signUpForm = [
+      {
+        type: "email",
+        id: "signup-email",
+        placeholder: "Email",
+        labelClass: "input-label",
+      },
+      {
+        type: "password",
+        id: "signup-password",
+        placeholder: "Password",
+        labelClass: "input-label",
+      },
+      {
+        type: "text",
+        id: "signup-username",
+        placeholder: "User Name",
+        labelClass: "input-label",
+      },
+      {
+        type: "text",
+        id: "signup-fullname",
+        placeholder: "Full Name",
+        labelClass: "input-label",
+      },
+      {
+        type: "text",
+        id: "signup-address",
+        placeholder: "Address",
+        labelClass: "input-label",
+      },
+      {
+        type: "date",
+        id: "signup-birthday",
+        placeholder: "Birthday",
+        labelClass: "input-label-birth",
+      },
+    ];
 
+    form.innerHTML = signUpForm
+      .map(
+        (item) =>
+          String.raw`
       <div class="input-group">
-        <input type="password" id="signup-password"  required   autocomplete="off"  name="signup-password" class="input" placeholder="Password">
-        <label class="input-label" for="signup-password">PASSWORD</label>
+        <input type="${item.type}" id="${
+            item.id
+          }"   required   autocomplete="off"  name="${
+            item.id
+          }" class="input" placeholder="${item.placeholder}">
+        <label class="${item.labelClass}" for="${
+            item.id
+          }">${item.placeholder.toUpperCase()}</label>
       </div>
+        `
+      )
+      .join("");
 
-      <div class="input-group">
-        <input type="text" id="signup-username"    required  autocomplete="off" name="signup-username" class="input" placeholder="Username">
-        <label class="input-label" for="signup-username">USER NAME</label>
-      </div>
-
-      <div class="input-group">
-        <input type="text" id="signup-fullname"  required   autocomplete="off"  name="signup-fullname" class="input" placeholder="Full Name">
-        <label class="input-label" for="signup-fullname">FULL NAME</label>
-      </div>
-
-      <div class="input-group">
-        <input type="text" id="signup-address"   required  autocomplete="off" name="signup-address" class="input" placeholder="Address">
-        <label class="input-label" for="signup-address">ADDRESS</label>
-      </div>
-
-      <div class="input-group">
-        <input type="date" required id="signup-birthday" autocomplete="false" name="signup-birthday" class="input" placeholder="birthday">
-        <label for="signup=-birthday"   required  class="input-label-birth">BIRTHDAY</label>
-      </div>
-    `;
     form.insertAdjacentElement(
       "afterbegin",
       (function () {

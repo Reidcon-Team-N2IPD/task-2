@@ -13,12 +13,23 @@ export class ViewProfile {
     viewProfileDetailsList.className = "view-profile-details-list";
 
     const member = MembersState.members.find((m) => m.fullname === name);
-    viewProfileDetailsList.innerHTML = String.raw`
-        <li class="view-profile-details-list_item">Name : ${member.fullname}</li>
-        <li class="view-profile-details-list_item">Birthday : ${member.birthday}</li>
-        <li class="view-profile-details-list_item">Address: ${member.address}</li>
-        <li class="view-profile-details-list_item">Email : ${member.email}</li>
-    `;
+    const memberDetails = [
+      { label: "Name", field: member.fullname },
+      { label: "Birthday", field: member.birthday },
+      { label: "Address", field: member.address },
+      { label: "Email", field: member.email },
+    ];
+    viewProfileDetailsList.innerHTML = memberDetails
+      .map(
+        (member) =>
+          String.raw`
+          <li class="view-profile-details-list_item">
+            <div class="view-profile-details-list_label">${member.label}:</div>
+            <div class="view-profile-details-list_field">${member.field}</div>
+          </li>
+        `
+      )
+      .join("");
 
     const closeButton = document.createElement("button");
     closeButton.innerHTML = String.raw`&times;`;
