@@ -23,9 +23,11 @@ export default class HomePage {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc, quam vestibulum dignissim. Id laoreet lorem faucibus adipiscing pellentesque accumsan, dui natoque. A mauris amet, egestas facilisi semper vel a nisi, nec. Fusce ac tincidunt odio non bibendum ac id. Vulputate ipsum odio leo risus cursus. 
         </p>
           <div class="home-btn-group">
+          <a href="https://documenter.getpostman.com/view/12827259/UVC3jnSk" target="_blank">
             <button class="home-docs-btn">
               Read Documentation
             </button>
+          </a>
           </div>
         </div>
         `;
