@@ -16,7 +16,7 @@ export class DeleteProfile {
     const deleteDescription = document.createElement("p");
     deleteDescription.className = "delete-description";
     deleteDescription.innerHTML =
-      "You will lose all your data if you delete your account.And after deleting your account, you will be logged out.";
+      "You will lose all your data if you delete your account. And after deleting your account, you will be logged out.";
     const confirmation = document.createElement("div");
     confirmation.className = "delete-confirmation";
     const confirm = document.createElement("button");
@@ -47,7 +47,7 @@ export class DeleteProfile {
       (function () {
         const h3 = document.createElement("h1");
         h3.className = "delete-profile-dialog-heading";
-        h3.textContent = "Are you sure ?";
+        h3.textContent = "Are you sure?";
         return h3;
       })()
     );

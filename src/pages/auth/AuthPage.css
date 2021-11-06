@@ -3,7 +3,7 @@
 }
 
 .auth-container {
-  @apply md:h-[calc(100vh-4rem)] order-2 md:order-1 md:w-[38vw] flex flex-col justify-center items-center md:ml-[50px] lg:ml-[100px] text-justify;
+  @apply min-w-[calc(80vw)] md:min-w-0 md:h-[calc(100vh-4rem)] order-2 md:order-1 md:w-[38vw] flex flex-col justify-center items-center md:ml-[50px] lg:ml-[100px] text-justify;
 }
 
 .auth-heading {
