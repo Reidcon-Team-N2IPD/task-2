@@ -82,7 +82,7 @@
 
 @media screen and (max-width: 768px) {
   .auth-header-navigation-list {
-    @apply absolute right-[-100%] top-[100%] min-w-[15rem] w-[50%] h-[calc(100vh-100%)] m-0 bg-[rgba(255,255,255,0.9)] backdrop-filter backdrop-blur-[1rem];
+    @apply absolute right-[-100%] top-[100%] min-w-[15rem] w-[50%] h-[calc(100vh-100%)] m-0 bg-white;
     box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.2);
     transition: right 0.3s;
   }
