@@ -1,41 +1,41 @@
 .not-found-main {
-  @apply flex flex-row justify-between items-center mt-16;
-}
-
-.not-found-container {
-  @apply h-[calc(100vh-4rem)] w-[38vw] flex flex-col justify-center items-center ml-[100px] text-justify;
-}
-
-.not-found-heading {
-  @apply self-start text-5xl text-[var(--color-primary)] font-600 mb-4;
-}
-
-.not-found-subheading {
-  @apply self-start text-[1.5rem] text-dark-900 mb-4 font-600;
-}
-
-.not-found-text {
-  @apply text-[14px] leading-[21px];
-}
-
-.not-found-btn-group {
-  @apply py-4 w-[calc(100%-4rem)] flex flex-row justify-start items-center self-start;
-}
-
-.not-found-docs-btn {
-  @apply text-[16px] font-bold text-white bg-dark-800 h-[50px] w-[200px] shadow-sm shadow-dark-500 hover:( bg-dark-600 shadow-2xl shadow-dark-800 ) active:( bg-dark-100 shadow-2xl shadow-dark-800 ) transition-all;
-}
-
-.not-found-signup-btn {
-  @apply signup-link text-[16px] font-bold text-dark-800 bg-bg-white  h-[50px] ml-2 w-[200px] shadow-sm
-            border border-4 border-dark-800 shadow-dark-500 hover:( bg-dark-600 text-white shadow-2xl shadow-dark-800) active:(bg-dark-900 text-white shadow-2xl shadow-dark-800) transition-all;
+  @apply flex flex-row justify-between items-center;
 }
 
 .not-found-img-container {
-  @apply h-[calc(100vh-4rem)] w-[35vw] flex flex-col justify-center items-center mr-[100px];
+  @apply h-[calc(100vh-4rem)] w-[35vw] flex flex-col justify-center items-center ml-[100px];
 }
 
 .not-found-img {
   height: 80vh;
   width: 35vw;
+}
+
+.not-found-error-msg-container {
+  @apply h-[calc(100vh-4rem)] w-[65vw] flex flex-col justify-center items-center ml-[100px] text-justify;
+}
+
+.not-found-error-msg {
+  @apply text-center text-[var(--color-primary)] text-5xl font-100;
+}
+
+.not-found-error-link {
+  @apply text-center text-dark-50 text-2xl font-100 mt-8 cursor-pointer  underline underline-2 underline-white hover:(underline underline-2 underline-dark-50) transition-all;
+}
+
+@media screen and (max-width: 768px) {
+  .not-found-main {
+    @apply flex-col;
+  }
+  .not-found-img-container {
+    @apply ml-0 w-screen h-[calc(100vh/2)] w-[calc(80vw)];
+  }
+
+  .not-found-error-msg-container {
+    @apply ml-0 w-screen h-[calc(100vh/2)] w-[calc(80vw)] justify-start;
+  }
+
+  .not-found-error-msg {
+    @apply text-4xl;
+  }
 }
