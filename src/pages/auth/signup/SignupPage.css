@@ -3,7 +3,7 @@
 }
 
 .signup-form {
-  @apply flex flex-col justify-evenly items-center w-[45vw] transition-all p-[5vh];
+  @apply flex flex-col justify-evenly items-center w-[90vw] md:w-[50vw] lg:w-[40vw] transition-all;
 }
 
 .signup-header {

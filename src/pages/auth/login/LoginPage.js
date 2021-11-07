@@ -45,7 +45,7 @@ export default class LoginPage {
       (function () {
         const loginBtn = document.createElement("button");
         loginBtn.className = "login-form-submit-btn";
-        loginBtn.textContent = "Login";
+        loginBtn.textContent = "LOGIN";
         loginBtn.type = "submit";
         return loginBtn;
       })()

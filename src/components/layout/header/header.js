@@ -7,6 +7,10 @@ export class Header {
     this.element = document.createElement("header");
     this.element.id = "main-header";
     this.element.className = "header";
+
+    const div = document.createElement("div");
+    div.className = "header-main";
+
     const p = document.createElement("p");
     p.className = "header-brand";
     p.innerHTML = "N<sup>2</sup>IPD";
@@ -14,6 +18,22 @@ export class Header {
       router.currentPath = "/";
     });
     p.style.cursor = "pointer";
+
+    div.appendChild(p);
+
+    const ham = document.createElement("a");
+    ham.className = "header-ham";
+    ham.addEventListener("click", () => {
+      if (this.element.classList.contains("visible")) {
+        this.element.classList.remove("visible");
+      } else {
+        this.element.classList.add("visible");
+      }
+    });
+    const span = document.createElement("span");
+    ham.appendChild(span);
+    div.appendChild(ham);
+
     const ul = document.createElement("ul");
     ul.className = "header-nav-list";
     ul.appendChild(
@@ -75,7 +95,7 @@ export class Header {
         return li;
       })()
     );
-    this.element.appendChild(p);
+    this.element.appendChild(div);
     this.element.appendChild(ul);
     return this.element;
   }

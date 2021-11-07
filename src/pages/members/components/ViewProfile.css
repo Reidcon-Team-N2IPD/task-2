@@ -1,12 +1,9 @@
 .view-profile-dialog {
-  @apply z-100 relative bg-white  w-[50vw] rounded-[5px] py-[4rem] px-[2rem] flex flex-col justify-center items-center;
-  opacity: 1;
+  @apply z-100 relative bg-white w-[95vw] md:w-[75vw] lg:w-[calc(50vw+30px)] rounded-[5px] py-[4rem] px-[2rem] flex flex-col justify-center items-center opacity-1;
 }
 
 .view-profile-dialog-wrapper {
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
-  @apply flex flex-col justify-center items-center absolute w-screen h-screen top-0 left-0;
+  @apply flex flex-col justify-center items-center absolute w-screen h-screen top-0 left-0 bg-[rgba(0,0,0,0.2)] backdrop-filter backdrop-blur-8;
 }
 
 .view-profile-details-list {
@@ -14,8 +11,9 @@
 }
 
 .view-profile-details-list_item {
-  @apply relative h-16 w-[100%] bg-light-200 shadow-lg mt-4 px-4 text-xl flex flex-row items-center;
+  @apply relative h-20 w-[100%] bg-light-200 shadow-lg mt-4 px-4 text-xl flex flex-col items-start justify-center md:(h-16 flex-row items-center justify-start);
 }
+
 .view-profile-details-list_label {
   @apply w-[20%];
 }
