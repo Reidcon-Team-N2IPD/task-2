@@ -30,6 +30,9 @@
   @apply w-[20%];
 }
 
+.profile-details-list_label {
+  @apply w-[20%];
+}
 .profile-btn-container {
   @apply flex flex-row items-center justify-between;
 }

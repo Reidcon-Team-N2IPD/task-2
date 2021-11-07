@@ -16,7 +16,7 @@ export class DeleteProfile {
     const deleteDescription = document.createElement("p");
     deleteDescription.className = "delete-description";
     deleteDescription.innerHTML =
-      "You will lose all your data if you delete your account. And after deleting your account, you will be logged out.";
+      "You will lose all your data if you delete your account. You will be logged out on deletion.";
     const confirmation = document.createElement("div");
     confirmation.className = "delete-confirmation";
     const confirm = document.createElement("button");

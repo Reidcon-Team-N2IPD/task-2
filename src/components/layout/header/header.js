@@ -43,6 +43,12 @@ export class Header {
         const link = document.createElement("a");
         link.className = "header-nav-list_link";
         link.textContent = "Documentation";
+        link.addEventListener("click", () => {
+          window.open(
+            "https://documenter.getpostman.com/view/12827259/UVC3jnSk",
+            "_blank"
+          );
+        });
         li.appendChild(link);
         return li;
       })()

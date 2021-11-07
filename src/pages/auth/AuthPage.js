@@ -23,9 +23,12 @@ export default class AuthPage {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc, quam vestibulum dignissim. Id laoreet lorem faucibus adipiscing pellentesque accumsan, dui natoque. A mauris amet, egestas facilisi semper vel a nisi, nec. Fusce ac tincidunt odio non bibendum ac id. Vulputate ipsum odio leo risus cursus. 
         </p>
           <div class="auth-btn-group">
-            <button class="auth-docs-btn">
+            <a href="https://documenter.getpostman.com/view/12827259/UVC3jnSk" target="_blank">
+              <button class="auth-docs-btn">
               Read Documentation
             </button>
+            </a>
+          
             <button class="auth-signup-btn signup-link">
               Join N<sup>2</sup>IPD
             </button>
