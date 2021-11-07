@@ -17,7 +17,7 @@ class App {
   }
 
   async render(page) {
-    this.currentPage = null;
+    delete this.currentPage;
     if (this.el.firstElementChild) {
       this.el.removeChild(this.el.firstElementChild);
     }

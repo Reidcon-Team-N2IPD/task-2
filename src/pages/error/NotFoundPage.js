@@ -1,5 +1,5 @@
 import "./NotFoundPage.css";
-import imgSrc from "../../assets/frameworks.svg";
+import imgSrc from "../../assets/Error.svg";
 
 export default class NotFoundPage {
   render() {

@@ -7,11 +7,13 @@ export class BaseLoader {
   }
   static show() {
     const loader = document.querySelector(".loader");
+    document.body.style.overflow = "hidden";
     loader.classList.add("show");
   }
 
   static hide() {
     const loader = document.querySelector(".loader");
+    document.body.style.overflow = "auto";
     loader.classList.remove("show");
   }
 }

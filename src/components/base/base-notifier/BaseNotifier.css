@@ -9,7 +9,7 @@
 
 .show-notifier-success {
   opacity: 1;
-  @apply absolute flex items-center justify-center left-[50%] bottom-16 w-[calc(100vh-2rem)] max-w-[375px] h-[50px];
+  @apply absolute flex items-center justify-center left-[50%] bottom-4 w-[calc(100vh-2rem)] max-w-[375px] h-[50px];
   transform: translate(-50%, -50%);
   background-color: rgb(44, 158, 78);
   color: white;
