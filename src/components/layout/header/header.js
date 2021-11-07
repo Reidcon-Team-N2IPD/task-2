@@ -1,6 +1,7 @@
 import "./Header.css";
 import { router } from "../../../router/router";
 import { logout } from "../../../services/api";
+import Logo from "../../../assets/logo.svg";
 
 export class Header {
   constructor() {
@@ -11,15 +12,14 @@ export class Header {
     const div = document.createElement("div");
     div.className = "header-main";
 
-    const p = document.createElement("p");
-    p.className = "header-brand";
-    p.innerHTML = "N<sup>2</sup>IPD";
-    p.addEventListener("click", () => {
+    const logo = document.createElement("img");
+    logo.className = "header-brand";
+    logo.src = Logo;
+    logo.addEventListener("click", () => {
       router.currentPath = "/";
     });
-    p.style.cursor = "pointer";
 
-    div.appendChild(p);
+    div.appendChild(logo);
 
     const ham = document.createElement("a");
     ham.className = "header-ham";

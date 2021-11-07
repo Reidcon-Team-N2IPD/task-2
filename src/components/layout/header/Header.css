@@ -3,7 +3,7 @@
 }
 
 .header-brand {
-  @apply text-4xl text-dark-400 font-bold cursor-pointer;
+  @apply h-[2rem] cursor-pointer;
 }
 
 .header-nav-list {
@@ -14,7 +14,7 @@
   @apply cursor-pointer p-2;
 }
 .header-nav-list > li {
-  @apply list-none;
+  @apply font-semibold list-none;
 }
 
 .header-main {
@@ -61,7 +61,7 @@
 }
 
 .header-nav-list_link {
-  @apply cursor-pointer text-dark-400 text-xl h-[100%] w-[100%]  transition-all hover:(text-red-500);
+  @apply cursor-pointer text-dark-400 text-size-[16px] h-[100%] w-[100%]  transition-all hover:(text-red-500);
 }
 .header-nav-list > li {
   @apply list-none;

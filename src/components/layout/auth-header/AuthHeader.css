@@ -3,7 +3,7 @@
 }
 
 .auth-header-brand {
-  @apply text-4xl text-dark-400 font-bold cursor-pointer;
+  @apply h-[2rem] cursor-pointer;
 }
 
 .auth-header-navigation-list {
@@ -14,7 +14,7 @@
   @apply cursor-pointer p-2;
 }
 .auth-header-navigation-list > li {
-  @apply list-none;
+  @apply list-none font-semibold;
 }
 
 .auth-header-main {
@@ -61,7 +61,7 @@
 }
 
 .auth-header-navigation-list_link {
-  @apply cursor-pointer text-dark-400 text-xl h-[100%] w-[100%]  transition-all hover:(text-red-500);
+  @apply cursor-pointer text-dark-400 text-base h-[100%] w-[100%]  transition-all hover:(text-red-500);
 }
 
 .auth-header-login-link_item {

@@ -1,5 +1,6 @@
 import "./AuthHeader.css";
 import { router } from "../../../router/router";
+import Logo from "../../../assets/logo.svg";
 export class AuthHeader {
   constructor() {
     this.element = document.createElement("header");
@@ -9,14 +10,14 @@ export class AuthHeader {
     const div = document.createElement("div");
     div.className = "auth-header-main";
 
-    const p = document.createElement("p");
-    p.className = "auth-header-brand";
-    p.innerHTML = "N<sup>2</sup>IPD";
-    p.addEventListener("click", () => {
+    const logo = document.createElement("img");
+    logo.className = "auth-header-brand";
+    logo.src = Logo;
+    logo.addEventListener("click", () => {
       router.currentPath = "/auth";
     });
 
-    div.appendChild(p);
+    div.appendChild(logo);
 
     const ul = document.createElement("ul");
 
